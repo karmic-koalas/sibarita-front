@@ -1,0 +1,38 @@
+.container {
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+}
+.main {
+    display: flex;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.schedule-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
