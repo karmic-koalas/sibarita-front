@@ -1,0 +1,25 @@
+@import 'variables';
+
+/** Media Queries **/
+@mixin tlf {
+    @media (min-width: $telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+/** Grid **/
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    column-gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}

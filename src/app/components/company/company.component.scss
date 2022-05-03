@@ -1,0 +1,14 @@
+@import '/src/scss/base/_mixins.scss';
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+
+    @include tablet {
+        @include grid (2, 20px);
+    }
+}
+
+.content {
+    margin-bottom: 2rem;
+}
