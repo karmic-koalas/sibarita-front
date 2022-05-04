@@ -1,0 +1,34 @@
+@import 'src/scss/base/_globales.scss';
+@import 'src/scss/base/_variables.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+}
+
+
+
+header {
+    height: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    font-weight: $bold;
+}
+
+header a {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+header a:hover {
+    color: $terciaryColor;
+    cursor: pointer;
+}

@@ -1,0 +1,41 @@
+@import 'src/scss/base/_globales.scss';
+@import '/src/scss/base/_mixins';
+@import '/src/scss/base/buttons';
+@import '/src/scss/base/utilities';
+
+.container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+}
+.main {
+    @include tablet {
+        @include grid-custom(2fr, 20px);
+    }
+    @include desktop {
+        @include grid-custom(3fr, 20px)
+    }
+    
+}
+
+.schedule-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
