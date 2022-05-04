@@ -1,12 +1,13 @@
 @import 'src/scss/base/_globales.scss';
+@import 'src/scss/base/_variables.scss';
 
 .footer {
-    background-color: black;
+    background-color: $primaryColor;
     padding: 30px;
     margin-top: 40px;
 }
 
 .copyright {
-    color: white;
+    color: $terciaryColor;
     text-align: center;
 }

@@ -1,5 +1,14 @@
 # Front TO-DO
+  - Primero le pido el día
+      - Recibo las horas a las que hay disponibilidad
+      - Le muestro las mesas disponibles según las horas
+      - Le dejo seleccionar cantidad de mesas que quiere reservar
 
+---------
+  - Mostrarle un resumen de las opciones seleccionadas
+  - Por último, una vez seleccione las mesas, le pido el nombre
+  - Botón de reservar
+---------
 ## First Week.
 
 0. [] Footer - Header

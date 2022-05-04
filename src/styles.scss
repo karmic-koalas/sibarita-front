@@ -1,9 +1,9 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './scss/base/_variables.scss';
 
 body, html {
-    background-color: #e9ecef;
+    background-color: $bgColor;
 }
 

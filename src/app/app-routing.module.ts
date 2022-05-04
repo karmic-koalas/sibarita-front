@@ -6,8 +6,8 @@ import { CompanyComponent } from './components/company/company.component';
 
 
 const routes: Routes = [
-  {path: 'booking', component: BookingComponent},
-  {path: 'company', component: CompanyComponent}
+  {path: ':company/booking', component: BookingComponent},
+  {path: ':company', component: CompanyComponent}
 ];
 
 @NgModule({
