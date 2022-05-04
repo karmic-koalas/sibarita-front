@@ -1,0 +1,10 @@
+@import 'variables';
+@import 'mixins';
+
+.btn-blue {
+    @include btn ($blue, $white, $bold, inline-block);
+}
+
+.btn-blue-block {
+    @include btn ($blue, $white, $bold, block);
+}

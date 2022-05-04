@@ -1,11 +1,11 @@
-@import '/src/scss/base/_mixins.scss';
+@import 'src/scss/base/_globales.scss';
+@import '/src/scss/base/_mixins';
+@import '/src/scss/base/buttons';
+@import '/src/scss/base/utilities';
 
-.container {
-    width: 90%;
-    margin: 0 auto;
-
+.grid {
     @include tablet {
-        @include grid (2, 20px);
+        @include grid-custom(2fr, 20px);
     }
 }
 
