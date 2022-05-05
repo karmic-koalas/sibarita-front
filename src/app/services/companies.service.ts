@@ -6,13 +6,19 @@ import { Tcompany } from '../models/Tcompany';
 })
 export class CompaniesService {
 
-  private url = "http://localhost:3000/api/companies";
+  private urlApi = "http://localhost:3000/api/companies";
 
   constructor() { }
 
-  getAll() :Promise<void> {
-    return fetch(this.url)
-      .then( response => response.json() )
-      .then( data => console.log(data) );
+  getAll() :Promise<Tcompany[]> {
+    return fetch(this.urlApi)
+      .then( response => response.status === 200 ? response.json() : false )
+      .then( data => data );
+  }
+
+  getCompanyByName(name :string | null) :Promise<Tcompany> {
+    return fetch(this.urlApi + `/${name}`)
+      .then( response => response.status === 200 ? response.json() : false )
+      .then( data => data );
   }
 }
