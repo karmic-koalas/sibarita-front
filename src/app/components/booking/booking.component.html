@@ -1,75 +1,69 @@
-<div class="container">
-        <img src="https://picsum.photos/200/300" alt="company-img" >
-        <div class="company-info--text">
-            <h1 class="text-3xl font-serif font-black">Company Name</h1>
-            <h2 class="text-2xl font-sans">@Owner</h2>
-        </div>
-</div>
+<app-header-company></app-header-company>
 
-    <main class="grid">
-        <form action="#" method="post" id="booking-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div class="mb-4">
-                <label for="name" class="block text-orange-800 text-sm font-bold mb-2">     
-                    Nombre:
-                </label>
+<main class="grid">
+    <form action="#" method="post" id="booking-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <label for="name" class="block text-orange-800 text-sm font-bold mb-2">     
+                Nombre:
+            </label>
 
-                <input required type="text" name="name" id="forms--input-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre de la reserva">
+            <input required type="text" name="name" id="forms--input-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre de la reserva">
 
-                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
-                    Número de personas:
-                </label>
-                <!--Hay que mirar el max-->
-                <input required type="number" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
+            <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
+                Número de personas:
+            </label>
+            <!--Hay que mirar el max-->
+            <input required type="number" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
 
-                <label for="booking-date-time" class="block text-orange-800 text-sm font-bold mb-2">
-                    Fecha y hora de la reserva:
-                </label>
+            <label for="booking-date-time" class="block text-orange-800 text-sm font-bold mb-2">
+                Fecha y hora de la reserva:
+            </label>
 
-                <input required type="datetime-local" name="booking-date" id="forms--input-date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                
-            </div>
-        </form>
-        
-
-        <button type="submit" form="booking-form" class="btn-blue-block">Reserva ahora!</button>
-
-
-        <div class="schedule-container">
-            <table class="table-fixed">
-                <tbody>
-                <tr>
-                    <th>Lunes</th>
-                    <td>7:30 de la tarde - 11:00 de la tarde</td>
-                </tr>
-                <tr>
-                    <th>Martes</th>
-                    <td>7:30 de la tarde - 11:00 de la tarde</td>
-                </tr>
-                <tr>
-                    <th>Miércoles</th>
-                    <td>7:30 de la tarde - 11:00 de la tarde</td>
-                </tr>
-                <tr>
-                    <th>Jueves</th>
-                    <td>7:30 de la tarde - 11:00 de la tarde</td>
-                </tr>
-                <tr>
-                    <th>Viernes</th>
-                    <td>7:30 de la tarde - 11:00 de la tarde</td>
-                </tr>
-                <tr>
-                    <th>Sábado</th>
-                    <td>7:30 de la tarde - 11:00 de la tarde</td>
-                </tr>
-                <tr>
-                    <th>Domingo</th>
-                    <td>7:30 de la tarde - 11:00 de la tarde</td>
-                </tr>
-                </tbody>
-            </table>
+            <input required type="datetime-local" name="booking-date" id="forms--input-date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             
         </div>
-    </main>
+    </form>
+    
+
+    <button type="submit" form="booking-form" class="btn-blue-block">Reserva ahora!</button>
+
+
+    <div class="schedule-container">
+        <table class="table-fixed">
+            <tbody>
+            <tr>
+                <th>Lunes</th>
+                <td>7:30 de la tarde - 11:00 de la tarde</td>
+            </tr>
+            <tr>
+                <th>Martes</th>
+                <td>7:30 de la tarde - 11:00 de la tarde</td>
+            </tr>
+            <tr>
+                <th>Miércoles</th>
+                <td>7:30 de la tarde - 11:00 de la tarde</td>
+            </tr>
+            <tr>
+                <th>Jueves</th>
+                <td>7:30 de la tarde - 11:00 de la tarde</td>
+            </tr>
+            <tr>
+                <th>Viernes</th>
+                <td>7:30 de la tarde - 11:00 de la tarde</td>
+            </tr>
+            <tr>
+                <th>Sábado</th>
+                <td>7:30 de la tarde - 11:00 de la tarde</td>
+            </tr>
+            <tr>
+                <th>Domingo</th>
+                <td>7:30 de la tarde - 11:00 de la tarde</td>
+            </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</main>
 
 <!--Primero le pido el día-->
     <!--Recibo las horas a las que hay disponibilidad-->

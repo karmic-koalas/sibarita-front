@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CompaniesService } from './services/companies.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sibarita-front';
+
+  constructor(
+    private CompaniesService :CompaniesService
+  ) {
+    this.CompaniesService.getAll();
+  }
 }
+
+
