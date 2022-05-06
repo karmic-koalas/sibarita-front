@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 import { ActivatedRoute } from '@angular/router';
-import { Tcompany } from 'src/app/models/Tcompany';
 
 @Component({
   selector: 'app-company',
@@ -12,6 +11,9 @@ import { Tcompany } from 'src/app/models/Tcompany';
 export class CompanyComponent implements OnInit {
 
   company :any = {};
+  address :any = {};
+  contact :any = {};
+  checked :boolean = false;
 
   constructor(
     private route :ActivatedRoute,
@@ -27,8 +29,9 @@ export class CompanyComponent implements OnInit {
       .then( result => {
         if(result) {
           this.company = result;
-        } else {
-          this.SweetAlert.getError('Mejorar', 'Usuario no existe, mejorar pagina');
+          this.address = result.address;
+          this.contact = result.contact;
+          this.checked = true;
         }
       })
       .catch( err => {

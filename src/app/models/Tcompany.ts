@@ -1,3 +1,4 @@
+import { Taddress } from "./Taddress"
 import { Tcontact } from "./Tcontact"
 
 export type Tcompany = {
@@ -6,14 +7,7 @@ export type Tcompany = {
     description: string,
     image: string,
     contact: Tcontact,
-    address: {
-        street: string,
-        number: string,
-        city: string,
-        province: string,
-        country: string,
-        cp: string
-    },
+    address: Taddress,
     schedule: {
         monday: {
         _0000: boolean,
