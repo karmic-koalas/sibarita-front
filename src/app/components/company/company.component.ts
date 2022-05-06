@@ -13,7 +13,7 @@ export class CompanyComponent implements OnInit {
   company :any = {};
   address :any = {};
   contact :any = {};
-  checked :boolean = false;
+  checked :boolean = true;
 
   constructor(
     private route :ActivatedRoute,
@@ -31,12 +31,14 @@ export class CompanyComponent implements OnInit {
           this.company = result;
           this.address = result.address;
           this.contact = result.contact;
-          this.checked = true;
+        } else {
+          this.checked = false;
         }
       })
       .catch( err => {
         console.log(err);
         this.SweetAlert.getError('Error', 'No se pudo conectar con el Servidor');
+        this.checked = false;
       });
   }
 
