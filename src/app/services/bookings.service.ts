@@ -9,7 +9,7 @@ import { TcheckingBooking } from '../models/TcheckingBooking';
 })
 export class BookingsService {
 
-  private urlApi = "http://localhost:3000/bookings/createNewBookings";
+  private urlApi = "http://localhost:3000/bookings/";
 
   resToken: string = '';
 
@@ -20,12 +20,12 @@ export class BookingsService {
       day: '',
       hour: ''
     },
-    tablesInBooking: ['']
+    numPerson: 0
   }
 
   constructor() { }
 
-  checkAvailableBooking(checkBookingData: TcheckingBooking) {
+  postBooking(checkBookingData: TcheckingBooking) {
     return fetch(this.urlApi, {
       method: 'POST',
       headers:{'Content-Type':'application/json'},
@@ -35,7 +35,7 @@ export class BookingsService {
     .then(res => {
       if (res != null) {
         console.log("Ta weno")
-        return res;
+        return res
       } else {
         console.log("No ta weno")
       }
@@ -43,8 +43,9 @@ export class BookingsService {
       alert("Can't connect to server.")
     })
   }
-  // Función adaptada: probar
-  async postBooking(bookingData: Tbooking) {
+
+ /*  // Función adaptada: probar
+  postBooking(bookingData: Tbooking) {
     return fetch(this.urlApi, {
       method: 'POST',
       headers:{'Content-Type':'application/json'},
@@ -60,5 +61,5 @@ export class BookingsService {
     })
     .catch(() => alert("Can't connect to server."))
 
-  }
+  } */ 
 }

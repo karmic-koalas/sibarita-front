@@ -5,5 +5,5 @@ export type Tbooking =  {
         day: string,
         hour: string
     },
-    tablesInBooking: [string]
+    numPerson: number
 }

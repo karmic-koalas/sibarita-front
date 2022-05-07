@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tbooking } from 'src/app/models/Tbooking';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { CompaniesService } from 'src/app/services/companies.service';
@@ -22,7 +22,7 @@ export class BookingComponent implements OnInit {
       day: '',
       hour: ''
     },
-    tablesInBooking: ['']
+    numPerson: 0
   }
 
   checkBooking: Tbooking = {
@@ -32,11 +32,12 @@ export class BookingComponent implements OnInit {
           day: '',
           hour: ''
       },
-    tablesInBooking: ['']
-  }
+      numPerson: 0
+    }
 
   constructor(
     private route :ActivatedRoute,
+    private redirect :Router,
     private CompaniesService :CompaniesService,
     private SweetAlert :SweetAlertService,
     private BookingsService: BookingsService
@@ -44,15 +45,14 @@ export class BookingComponent implements OnInit {
     this.loadCompany();
   }
 
-  /* queCojonesPasa(){
+  /* queCojinesPasa(){
     console.log(this.checkBooking)
   } */ 
 
 
-  async checkingAvailableBookings() {
-    return this.BookingsService.checkAvailableBooking(this.checkBooking).then(res => {
-      this.response = res;
-      console.log(this.response);
+  async postBookingClick() {
+    return this.BookingsService.postBooking(this.checkBooking).then(res => {
+      this.redirect.navigate(['/'+res.owner+'/'+res.bookingToken]);
     })
   }
 

@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CompanyComponent } from './components/company/company.component';
 import { HeaderCompanyComponent } from './components/header-company/header-company.component';
 import { FormsModule } from '@angular/forms';
+import { BookingsComponent } from './components/bookings/bookings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     BookingComponent,
     FooterComponent,
     CompanyComponent,
-    HeaderCompanyComponent
+    HeaderCompanyComponent,
+    BookingsComponent
   ],
   imports: [
     BrowserModule,
