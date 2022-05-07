@@ -9,25 +9,33 @@
                     Nombre:
                 </label>
     
-                <input required type="text" name="name" id="forms--input-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre de la reserva">
+                <input required [(ngModel)]="checkBooking.client" type="text" name="name" id="forms--input-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre de la reserva">
     
                 <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
-                    Número de personas:
+                    Personas:
                 </label>
                 <!--Hay que mirar el max-->
-                <input required type="number" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
-    
-                <label for="booking-date-time" class="block text-orange-800 text-sm font-bold mb-2">
-                    Fecha y hora de la reserva:
+                <input required [(ngModel)]="checkBooking.tablesInBooking" required type="number" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
+                    
+                <!-- <input required type="datetime-local" name="booking-date" id="forms--input-date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> -->
+                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
+                    Día:
                 </label>
-    
-                <input required type="datetime-local" name="booking-date" id="forms--input-date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+
+                <input required [(ngModel)]="checkBooking.bookingDate.day" required type="date" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
+
+                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
+                    Hora:
+                </label>
+
+                <input required [(ngModel)]="checkBooking.bookingDate.hour" required type="time" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
                 
+
             </div>
         </form>
         
-    
-        <button type="submit" form="booking-form" class="btn-blue-block">Reserva ahora!</button>
+    <!-- Pasar el botón a un "a" con el link. Sacar el token => Ponerlo como link nuevo => maquetar con los chiquillos la web -->
+        <button (click)="checkingAvailableBookings()" type="submit" form="booking-form" class="btn-blue-block">Reserva ahora!</button>
     
     
         <div class="schedule-container">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BookingsService } from 'src/app/services/bookings.service';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
@@ -16,9 +17,30 @@ export class BookingComponent implements OnInit {
   constructor(
     private route :ActivatedRoute,
     private CompaniesService :CompaniesService,
-    private SweetAlert :SweetAlertService
+    private SweetAlert :SweetAlertService,
+    private BookingsService: BookingsService
   ) {
     this.loadCompany();
+  }
+
+
+  checkBooking = {
+    client: '',
+    owner: '',
+      bookingDate: {
+          day: '',
+          hour: ''
+      },
+    tablesInBooking: ['']
+  }
+
+  queCojonesPasa(){
+    console.log(this.checkBooking)
+  } 
+
+
+  checkingAvailableBookings() {
+    return this.BookingsService.checkAvailableBooking(this.checkBooking)
   }
 
   async loadCompany()  {
@@ -27,6 +49,7 @@ export class BookingComponent implements OnInit {
       .then( result => {
         if(result) {
           this.company = result;
+          this.checkBooking.owner = result.owner
         } else {
           this.checked = false;
         }

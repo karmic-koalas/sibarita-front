@@ -6,7 +6,7 @@ import { Tcompany } from '../models/Tcompany';
 })
 export class CompaniesService {
 
-  private urlApi = "http://localhost:3000/api/companies";
+  private urlApi = "http://localhost:3000/companies";
 
   constructor() { }
 
