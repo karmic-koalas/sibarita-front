@@ -3,9 +3,6 @@
 @import '/src/scss/base/buttons';
 @import '/src/scss/base/utilities';
 
-.container {
-    height: 80vh;
-}
 .grid {
     @include tablet {
         @include grid-custom(2fr, 20px);

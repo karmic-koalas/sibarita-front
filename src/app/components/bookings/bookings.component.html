@@ -1,0 +1,24 @@
+<div *ngIf="checked">
+    <div class="container">
+        <app-header-company [img]="company.image" [owner]="company.owner" [nickname]="company.nickname">
+        </app-header-company>
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-4 bg-white">
+            <h2 class="font-black">Reserva Realizada ✅</h2>
+            <h1>Tu Id de reserva es:</h1>
+            <a class="px-6" [href]='company.owner+"/"+booking.bookingToken'>{{company.owner}}/{{booking.bookingToken}}</a>
+            <h3>Nombre:</h3>
+            <p class="px-6">{{booking.client}}</p>
+            <h3>Fecha y Hora:</h3>
+            <p class="px-6">{{booking.bookingDate.day}} - {{booking.bookingDate.hour}}</p>
+            <h3>Dirección:</h3>
+            <p class="px-6">{{company.address.street}}, {{company.address.number}}, {{company.address.province}}, </p>
+            <p class="px-6">{{company.address.country}}, {{company.address.cp}}. </p>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!checked">
+    <h1>Perfil no existe</h1>
+</div>
