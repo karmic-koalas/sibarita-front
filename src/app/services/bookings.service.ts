@@ -3,6 +3,7 @@ import { TBookingDate } from '../models/TbookingDate';
 import { TbookingDateData } from '../models/TbookingDateData';
 import { Tbooking } from '../models/Tbooking';
 import { TcheckingBooking } from '../models/TcheckingBooking';
+import { TbookingGET } from '../models/TbookingGET';
 
 @Injectable({
   providedIn: 'root'
@@ -44,10 +45,12 @@ export class BookingsService {
     })
   }
 
-  getBookingByToken(token:string)
+  getBookingByToken(token:string | null)
   {
     return fetch(this.urlApi+'byToken/'+token).then(res => res.json());
   }
+
+
  /*  // Función adaptada: probar
   postBooking(bookingData: Tbooking) {
     return fetch(this.urlApi, {

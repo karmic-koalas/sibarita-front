@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Tcompany } from 'src/app/models/Tcompany';
+import { TbookingGET } from 'src/app/models/TbookingGET';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
-import { SweetAlertArrayOptions } from 'sweetalert2';
 
 @Component({
   selector: 'app-bookings',
@@ -15,6 +14,16 @@ export class BookingsComponent implements OnInit {
 
   company:any = {}
   checked:boolean = true
+  booking:TbookingGET = {
+    client: "",
+    owner: "",
+    bookingToken: "",
+    bookingDate: {
+        day: "",
+        hour: "",
+    },
+    numPerson: 0,
+}
 
   constructor(
     private CompaniesService: CompaniesService,
@@ -23,7 +32,7 @@ export class BookingsComponent implements OnInit {
     private SweetAlert: SweetAlertService
     ) { 
       this.loadCompany()
-      this.BookingsService.getBookingByToken("ten-walls-fry")
+      this.loadBookingByToken()
     }
 
   ngOnInit(): void {
@@ -46,8 +55,12 @@ export class BookingsComponent implements OnInit {
         this.checked = false;
       });
   }
-}
-
-async function loadBookingByToken() {
-
+  async loadBookingByToken() {
+    const token = this.route.snapshot.paramMap.get('bookingToken');
+      return this.BookingsService.getBookingByToken(token)
+    .then(res => {
+      this.booking = res
+    })
+  
+  }
 }
