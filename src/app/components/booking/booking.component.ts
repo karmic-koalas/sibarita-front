@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Tbooking } from 'src/app/models/Tbooking';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
@@ -14,17 +15,17 @@ export class BookingComponent implements OnInit {
   company :any = {};
   checked :boolean = true;
 
-  constructor(
-    private route :ActivatedRoute,
-    private CompaniesService :CompaniesService,
-    private SweetAlert :SweetAlertService,
-    private BookingsService: BookingsService
-  ) {
-    this.loadCompany();
+  response: Tbooking = {
+    client: '',
+    owner: '',
+    bookingDate: {
+      day: '',
+      hour: ''
+    },
+    tablesInBooking: ['']
   }
 
-
-  checkBooking = {
+  checkBooking: Tbooking = {
     client: '',
     owner: '',
       bookingDate: {
@@ -34,16 +35,29 @@ export class BookingComponent implements OnInit {
     tablesInBooking: ['']
   }
 
-  queCojonesPasa(){
+  constructor(
+    private route :ActivatedRoute,
+    private CompaniesService :CompaniesService,
+    private SweetAlert :SweetAlertService,
+    private BookingsService: BookingsService
+  ) {
+    this.loadCompany();
+  }
+
+  /* queCojonesPasa(){
     console.log(this.checkBooking)
-  } 
+  } */ 
 
 
-  checkingAvailableBookings() {
-    return this.BookingsService.checkAvailableBooking(this.checkBooking)
+  async checkingAvailableBookings() {
+    return this.BookingsService.checkAvailableBooking(this.checkBooking).then(res => {
+      this.response = res;
+      console.log(this.response);
+    })
   }
 
   async loadCompany()  {
+    // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
     const nameCompany = this.route.snapshot.paramMap.get('company');
     return this.CompaniesService.getCompanyByName(nameCompany)
       .then( result => {

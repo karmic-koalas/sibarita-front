@@ -24,6 +24,7 @@ export class CompanyComponent implements OnInit {
   }
 
   async loadCompany()  {
+      // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
     const nameCompany = this.route.snapshot.paramMap.get('company');
     return this.CompaniesService.getCompanyByName(nameCompany)
       .then( result => {
