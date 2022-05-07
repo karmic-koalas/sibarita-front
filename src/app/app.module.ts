@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './components/header/header.component';
-import { BookingComponent } from './components/booking/booking.component';
+import { BookingComponent } from './components/bookingForm/booking.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CompanyComponent } from './components/company/company.component';
 import { HeaderCompanyComponent } from './components/header-company/header-company.component';
