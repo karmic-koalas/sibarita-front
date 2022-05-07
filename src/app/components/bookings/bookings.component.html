@@ -1,1 +1,11 @@
-<p>bookings works!</p>
+<div *ngIf="checked">
+    <app-header-company [img]="company.image" [owner]="company.owner" [nickname]="company.nickname"></app-header-company>
+        <h2>Tu Id de reserva es:</h2>
+        <div >
+            <p>token</p>
+        </div>
+</div>
+
+<div *ngIf="!checked">
+        <h1>Perfil no existe</h1>
+</div>

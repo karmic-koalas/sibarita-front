@@ -10,7 +10,7 @@ import { SweetAlertService } from 'src/app/services/sweet-alert.service';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss']
 })
-export class BookingComponent implements OnInit {
+export class BookingFormComponent implements OnInit {
 
   company :any = {};
   checked :boolean = true;

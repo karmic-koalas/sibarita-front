@@ -44,6 +44,10 @@ export class BookingsService {
     })
   }
 
+  getBookingByToken(token:string)
+  {
+    return fetch(this.urlApi+'byToken/'+token).then(res => res.json());
+  }
  /*  // Función adaptada: probar
   postBooking(bookingData: Tbooking) {
     return fetch(this.urlApi, {
