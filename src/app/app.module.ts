@@ -11,6 +11,7 @@ import { CompanyComponent } from './components/company/company.component';
 import { HeaderCompanyComponent } from './components/header-company/header-company.component';
 import { FormsModule } from '@angular/forms';
 import { BookingsComponent } from './components/bookings/bookings.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BookingsComponent } from './components/bookings/bookings.component';
     FooterComponent,
     CompanyComponent,
     HeaderCompanyComponent,
-    BookingsComponent
+    BookingsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
