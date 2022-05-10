@@ -3,6 +3,7 @@
 // @tailwind utilities;
 @import './scss/base/normalize';
 @import './scss/base/variables';
+@import "./scss/components/sweetAlert";
 
 html {
     font-size: 62.5%; /* 1rem = 10px */
