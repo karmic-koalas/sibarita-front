@@ -1,5 +1,5 @@
-@import 'src/scss/base/_globales.scss';
-@import 'src/scss/base/_variables.scss';
+@import 'src/scss/base/globales';
+@import 'src/scss/base/variables';
 
 * {
     padding: 0;
@@ -7,8 +7,6 @@
     top: 0;
     left: 0;
 }
-
-
 
 header {
     height: 2em;
