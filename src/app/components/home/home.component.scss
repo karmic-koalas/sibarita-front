@@ -1,10 +1,9 @@
-@import 'src/scss/base/_globales.scss';
-@import '/src/scss/base/_mixins';
-@import 'src/scss/base/_buttons.scss';
+@import 'src/scss/base/globales';
+@import '/src/scss/base/mixins';
+@import 'src/scss/base/buttons';
 
 
 .grid-container-main {
-
     display: grid;
  
     grid-template-columns: auto;
@@ -13,7 +12,7 @@
 }
 
 .grid-container-main h1 {
-    padding: 20px;
+    padding: 2rem;
     color: $secondaryColor;
     font-weight: $bold;
 }
