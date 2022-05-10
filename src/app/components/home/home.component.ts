@@ -9,10 +9,6 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  handleClick(event: any) {
-    console.log('Camejo', event);
-  }
-
   ngOnInit(): void {
   }
 
