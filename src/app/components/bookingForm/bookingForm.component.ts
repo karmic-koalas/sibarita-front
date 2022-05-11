@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tbooking } from 'src/app/models/Tbooking';
 import { BookingsService } from 'src/app/services/bookings.service';
@@ -7,8 +8,8 @@ import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
 @Component({
   selector: 'app-booking',
-  templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.scss']
+  templateUrl: './bookingForm.component.html',
+  styleUrls: ['./bookingForm.component.scss']
 })
 export class BookingFormComponent implements OnInit {
 
@@ -33,14 +34,14 @@ export class BookingFormComponent implements OnInit {
           hour: ''
       },
       numPerson: 0
-    }
+  }
 
   constructor(
-    private route :ActivatedRoute,
-    private redirect :Router,
-    private CompaniesService :CompaniesService,
-    private SweetAlert :SweetAlertService,
-    private BookingsService: BookingsService
+    private route: ActivatedRoute,
+    private redirect: Router,
+    private companiesService: CompaniesService,
+    private sweetAlert: SweetAlertService,
+    private bookingsService: BookingsService,
   ) {
     this.loadCompany();
   }
@@ -51,7 +52,7 @@ export class BookingFormComponent implements OnInit {
 
 
   async postBookingClick() {
-    return this.BookingsService.postBooking(this.checkBooking).then(res => {
+    return this.bookingsService.postBooking(this.checkBooking).then(res => {
       this.redirect.navigate(['/'+res.owner+'/'+res.bookingToken]);
     })
   }
@@ -59,7 +60,7 @@ export class BookingFormComponent implements OnInit {
   async loadCompany()  {
     // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
     const nameCompany = this.route.snapshot.paramMap.get('company');
-    return this.CompaniesService.getCompanyByName(nameCompany)
+    return this.companiesService.getCompanyByName(nameCompany)
       .then( result => {
         if(result) {
           this.company = result;
@@ -70,12 +71,13 @@ export class BookingFormComponent implements OnInit {
       })
       .catch( err => {
         console.log(err);
-        this.SweetAlert.getError('Error', 'No se pudo conectar con el Servidor');
+        this.sweetAlert.getError('Error', 'No se pudo conectar con el Servidor');
         this.checked = false;
       });
   }
 
   ngOnInit(): void {
+
   }
 
 }

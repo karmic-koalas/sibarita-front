@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { TBookingDate } from '../models/TbookingDate';
-import { TbookingDateData } from '../models/TbookingDateData';
 import { Tbooking } from '../models/Tbooking';
 import { TcheckingBooking } from '../models/TcheckingBooking';
-import { TbookingGET } from '../models/TbookingGET';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingsService {
 
-  private urlApi = "http://localhost:3000/bookings/";
+  private urlApi = "http://localhost:5000/bookings/";
 
   resToken: string = '';
 

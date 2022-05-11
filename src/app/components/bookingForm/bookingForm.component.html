@@ -5,31 +5,19 @@
     <main class="grid">
         <form action="#" method="post" id="booking-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div class="mb-4">
-                <label for="name" class="block text-orange-800 text-sm font-bold mb-2">     
-                    Nombre:
-                </label>
-    
+                <label for="name" class="block text-orange-800 text-sm font-bold mb-2">Nombre:</label>
                 <input required [(ngModel)]="checkBooking.client" type="text" name="name" id="forms--input-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre de la reserva">
-    
-                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
-                    Personas:
-                </label>
+
+                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">Personas:</label>
                 <!--Hay que mirar el max-->
-                <input required [(ngModel)]="checkBooking.numPerson" required type="number" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
+                <input  [(ngModel)]="checkBooking.numPerson"  type="number" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
                     
                 <!-- <input required type="datetime-local" name="booking-date" id="forms--input-date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> -->
-                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
-                    Día:
-                </label>
+                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">Día:</label>
+                <input  [(ngModel)]="checkBooking.bookingDate.day"  type="date" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
 
-                <input required [(ngModel)]="checkBooking.bookingDate.day" required type="date" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
-
-                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">
-                    Hora:
-                </label>
-
-                <input required [(ngModel)]="checkBooking.bookingDate.hour" required type="time" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
-                
+                <label for="numero-de-personas" class="block text-orange-800 text-sm font-bold mb-2">Hora:</label>
+                <input  [(ngModel)]="checkBooking.bookingDate.hour"  type="time" name="number-of-people" id="forms--input-number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Numero de personas" min="1">
             </div>
 
             <div class="d-flex-center">
@@ -38,11 +26,11 @@
 
         </form>
         
-    <!-- Pasar el botón a un "a" con el link. Sacar el token => Ponerlo como link nuevo => maquetar con los chiquillos la web -->
+        <!-- Pasar el botón a un "a" con el link. Sacar el token => Ponerlo como link nuevo => maquetar con los chiquillos la web -->
         <!-- <button (click)="checkingAvailableBookings()" type="submit" form="booking-form" class="btn-blue-block">Reserva ahora!</button> -->
     
     
-        <div class="schedule-container">
+        <!-- <div class="schedule-container">
             <table class="table-fixed">
                 <tbody>
                 <tr>
@@ -76,10 +64,11 @@
                 </tbody>
             </table>
             
-        </div>
+        </div> -->
+    
+        <app-formulario></app-formulario>
     </main>
 </div>
-
 <div *ngIf="!checked">
     <div class="container notfound">
         <h1>Perfil no existe</h1>
@@ -95,7 +84,7 @@
 <!--Mostrarle un resumen de las opciones seleccionadas-->
 <!--Por último, una vez seleccione las mesas, le pido el nombre-->
 <!--Botón de reservar-->
-<!---->
+<!-- -->
 
 
 
