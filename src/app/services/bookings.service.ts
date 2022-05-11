@@ -3,11 +3,10 @@ import { Tbooking } from '../models/Tbooking';
 import { TcheckingBooking } from '../models/TcheckingBooking';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookingsService {
-
-  private urlApi = "http://localhost:5000/bookings/";
+  private urlApi = 'http://localhost:3000/bookings/';
 
   resToken: string = '';
 
@@ -16,39 +15,38 @@ export class BookingsService {
     owner: '',
     bookingDate: {
       day: '',
-      hour: ''
+      hour: '',
     },
-    numPerson: 0
-  }
+    numPerson: 0,
+  };
 
-  constructor() { }
+  constructor() {}
 
   postBooking(checkBookingData: TcheckingBooking) {
     return fetch(this.urlApi, {
       method: 'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(checkBookingData)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(checkBookingData),
     })
-    .then(res => res.json())
-    .then(res => {
-      if (res != null) {
-        console.log("Ta weno")
-        return res
-      } else {
-        console.log("No ta weno")
-      }
-    }).catch(() => {
-      alert("Can't connect to server.")
-    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res != null) {
+          console.log('Ta weno');
+          return res;
+        } else {
+          console.log('No ta weno');
+        }
+      })
+      .catch(() => {
+        alert("Can't connect to server.");
+      });
   }
 
-  getBookingByToken(token:string | null)
-  {
-    return fetch(this.urlApi+'byToken/'+token).then(res => res.json());
+  getBookingByToken(token: string | null) {
+    return fetch(this.urlApi + 'byToken/' + token).then((res) => res.json());
   }
 
-
- /*  // Función adaptada: probar
+  /*  // Función adaptada: probar
   postBooking(bookingData: Tbooking) {
     return fetch(this.urlApi, {
       method: 'POST',
@@ -65,5 +63,5 @@ export class BookingsService {
     })
     .catch(() => alert("Can't connect to server."))
 
-  } */ 
+  } */
 }

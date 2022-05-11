@@ -1,48 +1,161 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="bookingForm">
-    <div>
-        <label for="name">Nombre</label>
-        <input type="text" [ngClass]="{ 'is-invalid': bookingForm.get('name')?.touched && !bookingForm.get('name')?.valid }" id="name" name="name" formControlName="name" required placeholder="Nombre de reserva">
-        <div *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['required']">Name is required</div>
-        <div *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['minlength']">Name must have a minimum of {{ bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['minlength']?.requiredLength }} characters</div>
+  <div>
+    <label for="name">Nombre</label>
+    <input
+      type="text"
+      [ngClass]="{
+        'is-invalid':
+          bookingForm.get('name')?.touched && !bookingForm.get('name')?.valid
+      }"
+      id="name"
+      name="name"
+      formControlName="name"
+      required
+      placeholder="Nombre de reserva"
+    />
+    <div
+      *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['required']"
+    >
+      Name is required
     </div>
+    <div
+      *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['minlength']"
+    >
+      Name must have a minimum of
+      {{ bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['minlength']?.requiredLength }}
+      characters
+    </div>
+  </div>
 
-    <div>
-        <label for="persons">Personas</label>
-        <input type="number" [ngClass]="{ 'is-invalid': bookingForm.get('persons')?.touched && !bookingForm.get('persons')?.valid }" id="persons" name="persons" formControlName="persons" required placeholder="Número de personas">
-        <div *ngIf="bookingForm.get('persons')?.touched && bookingForm.get('persons')?.errors?.['required']">Persons is required</div>
+  <div>
+    <label for="persons">Personas</label>
+    <input
+      type="number"
+      [ngClass]="{
+        'is-invalid':
+          bookingForm.get('persons')?.touched &&
+          !bookingForm.get('persons')?.valid
+      }"
+      id="persons"
+      min="1"
+      name="persons"
+      formControlName="persons"
+      required
+      placeholder="Número de personas"
+    />
+    <div
+      *ngIf="bookingForm.get('persons')?.touched && bookingForm.get('persons')?.errors?.['required']"
+    >
+      Persons is required
     </div>
+  </div>
 
-    <div>
-        <label for="date">Fecha</label>
-        <input type="date" [ngClass]="{ 'is-invalid': bookingForm.get('date')?.touched && !bookingForm.get('date')?.valid }" id="date" name="date" formControlName="date" required [min]="date | date:'yyyy-MM-dd'">
-        <div *ngIf="bookingForm.get('date')?.touched && bookingForm.get('date')?.errors?.['required']">Date is required</div>
+  <div>
+    <label for="date">Fecha</label>
+    <input
+      type="date"
+      [ngClass]="{
+        'is-invalid':
+          bookingForm.get('date')?.touched && !bookingForm.get('date')?.valid
+      }"
+      id="date"
+      name="date"
+      formControlName="date"
+      required
+      [min]="date | date: 'yyyy-MM-dd'"
+    />
+    <div
+      *ngIf="bookingForm.get('date')?.touched && bookingForm.get('date')?.errors?.['required']"
+    >
+      Date is required
     </div>
+  </div>
 
-    <div>
-        <label for="time">Hora</label>
-        <input type="time" [ngClass]="{ 'is-invalid': bookingForm.get('time')?.touched && !bookingForm.get('time')?.valid }" id="time" name="time" formControlName="time" required><!-- Falta validacion min y max -->
-        <div *ngIf="bookingForm.get('time')?.touched && bookingForm.get('time')?.errors?.['required']">Time is required</div>
+  <div>
+    <label for="time">Hora</label>
+    <input
+      type="time"
+      [ngClass]="{
+        'is-invalid':
+          bookingForm.get('time')?.touched && !bookingForm.get('time')?.valid
+      }"
+      id="time"
+      name="time"
+      formControlName="time"
+      required
+    /><!-- Falta validacion min y max -->
+    <div
+      *ngIf="bookingForm.get('time')?.touched && bookingForm.get('time')?.errors?.['required']"
+    >
+      Time is required
     </div>
+  </div>
 
-    <!-- Tlf obligatorio, y falta validacion-->
-    <div>
-        <label for="tel">Télefono</label>
-        <input type="tel" [ngClass]="{ 'is-invalid': bookingForm.get('tel')?.touched && !bookingForm.get('tel')?.valid }" id="tel" name="tel" formControlName="tel">
-        <div *ngIf="bookingForm.get('tel')?.touched && bookingForm.get('tel')?.errors?.['required']">Tel is required</div>
+  <!-- Tlf obligatorio, y falta validacion-->
+  <div>
+    <label for="tel">Télefono</label>
+    <input
+      type="tel"
+      [ngClass]="{
+        'is-invalid':
+          bookingForm.get('tel')?.touched && !bookingForm.get('tel')?.valid
+      }"
+      id="tel"
+      name="tel"
+      formControlName="tel"
+    />
+    <div
+      *ngIf="bookingForm.get('tel')?.touched && bookingForm.get('tel')?.errors?.['required']"
+    >
+      Tel is required
     </div>
+  </div>
 
-    <!-- Tlf obligatorio, y falta validacion-->
-    <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email">
+  <!-- Tlf obligatorio, y falta validacion-->
+  <div>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      [ngClass]="{
+        'is-invalid':
+          bookingForm.get('email')?.touched && !bookingForm.get('email')?.valid
+      }"
+      id="email"
+      name="email"
+      formControlName="email"
+    />
+    <div
+      *ngIf="bookingForm.get('email')?.touched && bookingForm.get('email')?.errors?.['email']"
+    >
+      Email format is incorrect
     </div>
+  </div>
 
-    <div>
-        <label for="time">Comentario</label>
-        <textarea name="coment" id="coment" cols="30" rows="10"></textarea>
+  <div>
+    <label for="coment">Comentario</label>
+    <textarea
+      type="time"
+      [ngClass]="{
+        'is-invalid':
+          bookingForm.get('coment')?.touched &&
+          !bookingForm.get('coment')?.valid
+      }"
+      formControlName="coment"
+      name="coment"
+      id="coment"
+      cols="30"
+      rows="10"
+    >
+    </textarea>
+    <div
+      *ngIf="bookingForm.get('coment')?.touched && bookingForm.get('coment')?.errors?.['maxlength']"
+    >
+      Longitud demasiado larga, no puede usted mi señore superer les 140
+      caracteres
     </div>
+  </div>
 
-    <div>
-        <button type="submit" [disabled]="bookingForm.invalid">Enviar</button>
-    </div>
+  <div>
+    <button type="submit" [disabled]="bookingForm.invalid">Enviar</button>
+  </div>
 </form>
