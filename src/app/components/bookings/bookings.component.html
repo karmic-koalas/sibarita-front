@@ -1,4 +1,4 @@
-<div ngIf="checked">
+<div *ngIf="checked">
   <div class="container">
     <app-header-company
       [img]="company.image"
@@ -20,17 +20,17 @@
         </p>
         <h3>Dirección:</h3>
         <p class="px-6">
-          {{ company.address.street }}, {{ company.address.number }},
-          {{ company.address.province }},
+          {{ companyAddress.street }}, {{ companyAddress.number }},
+          {{ companyAddress.province }},
         </p>
         <p class="px-6">
-          {{ company.address.country }}, {{ company.address.cp }}.
+          {{ companyAddress.country }}, {{ companyAddress.cp }}.
         </p>
       </div>
     </div>
   </div>
 </div>
 
-<div ngIf="!checked">
+<div *ngIf="!checked">
   <h1>Perfil no existe</h1>
 </div>

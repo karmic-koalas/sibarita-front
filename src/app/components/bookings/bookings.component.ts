@@ -12,6 +12,7 @@ import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 })
 export class BookingsComponent implements OnInit {
   company: any = {};
+  companyAddress: any;
   checked: boolean = true;
   booking: TbookingGET = {
     client: '',
@@ -35,8 +36,8 @@ export class BookingsComponent implements OnInit {
     private route: ActivatedRoute,
     private SweetAlert: SweetAlertService
   ) {
-    this.loadCompany();
     this.loadBookingByToken();
+    this.loadCompany();
   }
 
   ngOnInit(): void {}
@@ -49,6 +50,7 @@ export class BookingsComponent implements OnInit {
       .then((result) => {
         if (result && result.owner === this.booking.owner) {
           this.company = result;
+          this.companyAddress = result.address;
         } else {
           this.checked = false;
         }
