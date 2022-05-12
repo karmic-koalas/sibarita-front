@@ -18,6 +18,11 @@ export class BookingsService {
       hour: '',
     },
     numPerson: 0,
+    textArea: "",
+    contact: {
+	    phone: "",
+	    email: ""
+    }
   };
 
   constructor() {}
@@ -45,23 +50,4 @@ export class BookingsService {
   getBookingByToken(token: string | null) {
     return fetch(this.urlApi + 'byToken/' + token).then((res) => res.json());
   }
-
-  /*  // Función adaptada: probar
-  postBooking(bookingData: Tbooking) {
-    return fetch(this.urlApi, {
-      method: 'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(bookingData)
-    })
-    .then(res => res.json())
-    .then(res => {
-      if (res != null) {
-        console.log("Ta weno")
-      } else {
-        console.log("No ta weno")
-      }
-    })
-    .catch(() => alert("Can't connect to server."))
-
-  } */
 }

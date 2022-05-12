@@ -7,11 +7,12 @@
         'is-invalid':
           bookingForm.get('name')?.touched && !bookingForm.get('name')?.valid
       }"
+      [(ngModel)]="checkBooking.client"
       id="name"
       name="name"
       formControlName="name"
       required
-      placeholder="Nombre de reserva"
+      placeholder="A nombre de..."
     />
     <div
       *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['required']"
@@ -36,6 +37,7 @@
           bookingForm.get('persons')?.touched &&
           !bookingForm.get('persons')?.valid
       }"
+      [(ngModel)]="checkBooking.numPerson"
       id="persons"
       min="1"
       name="persons"
@@ -58,6 +60,7 @@
         'is-invalid':
           bookingForm.get('date')?.touched && !bookingForm.get('date')?.valid
       }"
+      [(ngModel)]="checkBooking.bookingDate.day"
       id="date"
       name="date"
       formControlName="date"
@@ -79,6 +82,7 @@
         'is-invalid':
           bookingForm.get('time')?.touched && !bookingForm.get('time')?.valid
       }"
+      [(ngModel)]="checkBooking.bookingDate.hour"
       id="time"
       name="time"
       formControlName="time"
@@ -100,6 +104,7 @@
         'is-invalid':
           bookingForm.get('tel')?.touched && !bookingForm.get('tel')?.valid
       }"
+      [(ngModel)]="checkBooking.contact.phone"
       id="tel"
       name="tel"
       formControlName="tel"
@@ -120,6 +125,7 @@
         'is-invalid':
           bookingForm.get('email')?.touched && !bookingForm.get('email')?.valid
       }"
+      [(ngModel)]="checkBooking.contact.email"
       id="email"
       name="email"
       formControlName="email"
@@ -156,6 +162,12 @@
   </div>
 
   <div>
-    <button type="submit" [disabled]="bookingForm.invalid">Enviar</button>
+    <button
+      type="submit"
+      [disabled]="bookingForm.invalid"
+      (click)="postingBooking()"
+    >
+      Enviar
+    </button>
   </div>
 </form>

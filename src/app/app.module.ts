@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './components/header/header.component';
-import { BookingFormComponent } from './components/bookingForm/bookingForm.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CompanyComponent } from './components/company/company.component';
 import { HeaderCompanyComponent } from './components/header-company/header-company.component';
@@ -25,7 +24,6 @@ import { FormularioComponent } from './components/formulario/formulario.componen
   declarations: [
     AppComponent,
     HeaderComponent,
-    BookingFormComponent,
     FooterComponent,
     CompanyComponent,
     HeaderCompanyComponent,

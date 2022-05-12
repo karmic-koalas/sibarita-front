@@ -5,5 +5,10 @@ export type Tbooking =  {
         day: string,
         hour: string
     },
-    numPerson: number
+    numPerson: number,
+    contact: { 
+	    phone: string,
+	    email: string
+    },
+    textArea: string
 }

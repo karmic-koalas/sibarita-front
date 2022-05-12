@@ -1,18 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Tbooking} from 'src/app/models/Tbooking';
+import {BookingsService} from 'src/app/services/bookings.service';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
 })
+
 export class FormularioComponent implements OnInit {
   date: Date = new Date();
   bookingForm: FormGroup;
+  checkBooking: Tbooking = {
+    client: "",
+    owner: "",
+    bookingDate: {
+        day: "",
+        hour: ""
+    },
+    numPerson: 0,
+    contact: { 
+	    phone: "",
+	    email: ""
+    },
+    textArea: ""
+}
+ 
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+	  private redirect: Router,
+	  private formBuilder: FormBuilder,
+	  private bookingsService: BookingsService
+  ) {
     this.bookingForm = this.initForm();
-    // console.log(this.minTime)
   }
 
   ngOnInit(): void {
@@ -33,6 +55,13 @@ export class FormularioComponent implements OnInit {
       coment: ['', [Validators.minLength(0), Validators.maxLength(140)]],
       email: ['', [Validators.email]],
     });
+  }
+
+  async postingBooking() {
+	  await this.bookingsService.postBooking(this.checkBooking).then(res => {
+		  this.redirect.navigate(['/'+res.owner+'/'+res.bookingToken]);
+	  })
+	
   }
 
   // Pone valor por defecto
