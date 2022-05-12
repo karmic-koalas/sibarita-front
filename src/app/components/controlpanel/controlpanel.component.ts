@@ -73,8 +73,7 @@ export class ControlpanelComponent implements OnInit {
       .then((res) => {
         console.log(res, 'pre if');
         if (res) {
-          console.log(res);
-          this.showedBookings = res;
+          this.showedBookings.push(res);
         } else {
           console.log(
             'No se ha podido obtener el res porque si estuviera vacío te lo iba a dar igualmente'

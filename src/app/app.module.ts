@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { CommonModule } from '@angular/common';
+import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     FooterComponent,
     CompanyComponent,
     HeaderCompanyComponent,
+    ControlpanelComponent,
     BookingsComponent,
     HomeComponent,
     FormularioComponent,
@@ -34,6 +37,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ButtonModule,
