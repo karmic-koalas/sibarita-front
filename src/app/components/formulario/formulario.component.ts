@@ -1,40 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Tbooking} from 'src/app/models/Tbooking';
-import {BookingsService} from 'src/app/services/bookings.service';
-
+import { Tbooking } from 'src/app/models/Tbooking';
+import { BookingsService } from 'src/app/services/bookings.service';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
 })
-
 export class FormularioComponent implements OnInit {
   date: Date = new Date();
   bookingForm: FormGroup;
   checkBooking: Tbooking = {
-    client: "",
-    owner: "",
+    client: '',
+    owner: '',
     bookingDate: {
-        day: "",
-        hour: ""
+      day: '',
+      hour: '',
     },
     numPerson: 0,
-    contact: { 
-	    phone: "",
-	    email: ""
+    contact: {
+      phone: '',
+      email: '',
     },
-    textArea: ""
-}
- 
-
+    textArea: '',
+  };
+  company: string | null;
   constructor(
-	  private redirect: Router,
-	  private formBuilder: FormBuilder,
-	  private bookingsService: BookingsService
+    private route: ActivatedRoute,
+    private redirect: Router,
+    private formBuilder: FormBuilder,
+    private BookingsService: BookingsService
   ) {
     this.bookingForm = this.initForm();
+    this.company = this.route.snapshot.paramMap.get('company');
   }
 
   ngOnInit(): void {
@@ -58,10 +57,32 @@ export class FormularioComponent implements OnInit {
   }
 
   async postingBooking() {
-	  await this.bookingsService.postBooking(this.checkBooking).then(res => {
-		  this.redirect.navigate(['/'+res.owner+'/'+res.bookingToken]);
-	  })
-	
+    if (this.bookingForm.valid) {
+      const newCamejo: Tbooking = {
+        client: this.bookingForm.value.name,
+        owner: this.company,
+        bookingDate: {
+          day: this.bookingForm.value.date,
+          hour: this.bookingForm.value.time,
+        },
+        numPerson: this.bookingForm.value.persons,
+        contact: {
+          phone: this.bookingForm.value.tel,
+          email: this.bookingForm.value.email,
+        },
+        textArea: this.bookingForm.value.comment,
+      };
+
+      await this.BookingsService.postBooking(newCamejo).then((res) => {
+        console.log(res);
+        console.log(res.owner);
+        console.log(res.bookingToken);
+        console.log(res.owner + '/' + res.bookingToken);
+        return this.redirect.navigate([
+          '/' + res.owner + '/' + res.bookingToken,
+        ]);
+      });
+    }
   }
 
   // Pone valor por defecto
@@ -69,7 +90,7 @@ export class FormularioComponent implements OnInit {
   //   this.bookingForm.patchValue( {name: 'César'} )
   // }
 
-  onSubmit() {
-    console.log('Formulario funciona');
+  async onSubmit() {
+    await this.postingBooking();
   }
 }

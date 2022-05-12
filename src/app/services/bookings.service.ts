@@ -18,16 +18,26 @@ export class BookingsService {
       hour: '',
     },
     numPerson: 0,
-    textArea: "",
+    textArea: '',
     contact: {
-	    phone: "",
-	    email: ""
-    }
+      phone: '',
+      email: '',
+    },
   };
 
   constructor() {}
 
-  postBooking(checkBookingData: TcheckingBooking) {
+  async getBookingByToken(token: string | null) {
+    const res = await fetch(this.urlApi + 'byToken/' + token);
+    return await res.json();
+  }
+
+  async getAllBookingsByOwner(owner: string | null) {
+    const res = await fetch(this.urlApi + 'byOwner/' + owner);
+    return await res.json();
+  }
+
+  async postBooking(checkBookingData: Tbooking) {
     return fetch(this.urlApi, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -37,6 +47,7 @@ export class BookingsService {
       .then((res) => {
         if (res != null) {
           console.log('Ta weno');
+
           return res;
         } else {
           console.log('No ta weno');
@@ -45,9 +56,5 @@ export class BookingsService {
       .catch(() => {
         alert("Can't connect to server.");
       });
-  }
-
-  getBookingByToken(token: string | null) {
-    return fetch(this.urlApi + 'byToken/' + token).then((res) => res.json());
   }
 }

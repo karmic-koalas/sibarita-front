@@ -1,0 +1,63 @@
+<div class="container">
+  <h1 class="paneldecontrol">PANEL DE CONTROL</h1>
+  <button (click)="isButtonPressed()" class="btn-blue">
+    Información Personal
+  </button>
+  <div *ngIf="checked">
+    <div class="company-info">
+      <h2>Nombre de la compañía:</h2>
+      <p>{{ company.nickname }}</p>
+
+      <h2>Url Personalizada:</h2>
+      <p>{{ company.owner }}</p>
+
+      <h2>Descripción:</h2>
+      <p>{{ company.description }}</p>
+
+      <h2>Ciudad:</h2>
+      <p>{{ company.address.city }}</p>
+
+      <h2>Provincia:</h2>
+      <p>{{ company.address.province }}</p>
+
+      <h2>Pais:</h2>
+      <p>{{ company.address.country }}</p>
+
+      <h2>Codigo Postal:</h2>
+      <p>{{ company.address.cp }}</p>
+
+      <h2>Calle:</h2>
+      <p>{{ company.address.street }}</p>
+
+      <h2>Numero:</h2>
+      <p>{{ company.address.number }}</p>
+
+      <h2>Email:</h2>
+      <p>{{ company.contact.email }}</p>
+
+      <h2>Numero de telefono:</h2>
+      <p>+{{ company.contact.phone }}</p>
+    </div>
+  </div>
+  <button (click)="isButtonPressed()" class="btn-blue">Reservas</button>
+  <div *ngIf="checked">
+    <div class="singleBooking" *ngFor="let object of showedBookings">
+      <div>
+        <p>Día: {{ object.bookingDate.day }}</p>
+        <p>Hora: {{ object.bookingDate.hour }}</p>
+      </div>
+      <div>
+        <p>Número de personas: {{ object.numPerson }}</p>
+      </div>
+      <div>
+        <p>Telefono: {{ object.contact.phone }}</p>
+      </div>
+      <div>
+        <p>Email: {{ object.contact.email }}</p>
+      </div>
+      <div>
+        <p>Información Adicional: {{ object.textarea }}</p>
+      </div>
+    </div>
+  </div>
+</div>
