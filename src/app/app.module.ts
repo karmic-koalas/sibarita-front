@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // PrimeNG
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
 import { FormularioComponent } from './components/formulario/formulario.component';
 
 @NgModule({
@@ -29,7 +29,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     HeaderCompanyComponent,
     BookingsComponent,
     HomeComponent,
-    FormularioComponent
+    FormularioComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +37,9 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     AppRoutingModule,
     FormsModule,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

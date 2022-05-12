@@ -27,7 +27,17 @@ export class BookingsService {
 
   constructor() {}
 
-  postBooking(checkBookingData: Tbooking) {
+  async getBookingByToken(token: string | null) {
+    const res = await fetch(this.urlApi + 'byToken/' + token);
+    return await res.json();
+  }
+
+  async getAllBookingsByOwner(owner: string | null) {
+    const res = await fetch(this.urlApi + 'byOwner/' + owner);
+    return await res.json();
+  }
+
+  async postBooking(checkBookingData: Tbooking) {
     return fetch(this.urlApi, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -46,10 +56,5 @@ export class BookingsService {
       .catch(() => {
         alert("Can't connect to server.");
       });
-  }
-
-  async getBookingByToken(token: string | null) {
-    const res = await fetch(this.urlApi + 'byToken/' + token);
-    return await res.json();
   }
 }

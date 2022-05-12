@@ -1,0 +1,21 @@
+@import 'src/scss/base/globales';
+@import '/src/scss/base/mixins';
+@import '/src/scss/base/buttons';
+
+
+
+
+// .singleBooking {
+//     padding: 10px;
+//     border: 1px solid black;
+// }
+
+.paneldecontrol {
+    text-align: center;
+}
+
+.company-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}

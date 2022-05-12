@@ -27,10 +27,10 @@ export class FormularioComponent implements OnInit {
   };
   company: string | null;
   constructor(
+    private route: ActivatedRoute,
     private redirect: Router,
     private formBuilder: FormBuilder,
-    private bookingsService: BookingsService,
-    private route: ActivatedRoute
+    private BookingsService: BookingsService
   ) {
     this.bookingForm = this.initForm();
     this.company = this.route.snapshot.paramMap.get('company');
@@ -73,8 +73,11 @@ export class FormularioComponent implements OnInit {
         textArea: this.bookingForm.value.comment,
       };
 
-      this.bookingsService.postBooking(newCamejo).then((res) => {
+      await this.BookingsService.postBooking(newCamejo).then((res) => {
         console.log(res);
+        console.log(res.owner);
+        console.log(res.bookingToken);
+        console.log(res.owner + '/' + res.bookingToken);
         return this.redirect.navigate([
           '/' + res.owner + '/' + res.bookingToken,
         ]);
@@ -86,6 +89,10 @@ export class FormularioComponent implements OnInit {
   // onPatchValue(): void {
   //   this.bookingForm.patchValue( {name: 'César'} )
   // }
+
+  async postBookingClick() {
+    this.redirect.navigate(['localhost:4200/Burguer_Lolo/plain-donkeys-end']);
+  }
 
   async onSubmit() {
     await this.postingBooking();
