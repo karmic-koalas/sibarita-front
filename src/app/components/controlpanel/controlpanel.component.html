@@ -3,7 +3,7 @@
   <button (click)="isButtonPressed()" class="btn-blue">
     Información Personal
   </button>
-  <div>
+  <div *ngIf="checked">
     <div class="company-info">
       <h2>Nombre de la compañía:</h2>
       <p>{{ company.nickname }}</p>
@@ -39,8 +39,8 @@
       <p>+{{ company.contact.phone }}</p>
     </div>
   </div>
-  <!-- <button (click)="isButtonPressed()" class="btn-blue">Reservas</button> -->
-  <div>
+  <button (click)="isButtonPressed()" class="btn-blue">Reservas</button>
+  <div *ngIf="checked">
     <div class="singleBooking" *ngFor="let object of showedBookings">
       <div>
         <p>Día: {{ object.bookingDate.day }}</p>

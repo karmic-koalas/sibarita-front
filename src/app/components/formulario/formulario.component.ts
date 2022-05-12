@@ -90,10 +90,6 @@ export class FormularioComponent implements OnInit {
   //   this.bookingForm.patchValue( {name: 'César'} )
   // }
 
-  async postBookingClick() {
-    this.redirect.navigate(['localhost:4200/Burguer_Lolo/plain-donkeys-end']);
-  }
-
   async onSubmit() {
     await this.postingBooking();
   }
