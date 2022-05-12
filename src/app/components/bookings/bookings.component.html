@@ -1,4 +1,4 @@
-<div *ngIf="checked">
+<div ngIf="checked">
     <div class="container">
         <app-header-company [img]="company.image" [owner]="company.owner" [nickname]="company.nickname"></app-header-company>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -18,6 +18,7 @@
     </div>
 </div>
 
-<div *ngIf="!checked">
+<divngIf="!checked">
     <h1>Perfil no existe</h1>
 </div>
+
