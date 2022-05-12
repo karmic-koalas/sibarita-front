@@ -2,23 +2,22 @@ import { Injectable } from '@angular/core';
 import { Tcompany } from '../models/Tcompany';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CompaniesService {
+  private urlApi = 'http://localhost:3000/companies';
 
-  private urlApi = "http://localhost:3000/companies";
+  constructor() {}
 
-  constructor() { }
-
-  getAll() :Promise<Tcompany[]> {
-    return fetch(this.urlApi)
-      .then( response => response.status === 200 ? response.json() : false )
-      .then( data => data );
+  async getAll(): Promise<Tcompany[]> {
+    const response = await fetch(this.urlApi);
+    const data = response.status === 200 ? response.json() : false;
+    return data;
   }
 
-  getCompanyByName(name :string | null) :Promise<Tcompany> {
-    return fetch(this.urlApi + `/${name}`)
-      .then( response => response.status === 200 ? response.json() : false )
-      .then( data => data );
+  async getCompanyByName(name: string | null): Promise<Tcompany> {
+    const response = await fetch(this.urlApi + `/${name}`);
+    const data = response.status === 200 ? response.json() : false;
+    return data;
   }
 }
