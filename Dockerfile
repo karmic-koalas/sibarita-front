@@ -8,7 +8,6 @@ RUN apk add --no-cache nginx npm
 COPY ./*.json /front/
 COPY ./karma.conf.js /front/
 COPY ./src/ /front/src/
-COPY ./.angular/ /front/.angular/
 
 # Build angular website.
 RUN cd /front && npm install
