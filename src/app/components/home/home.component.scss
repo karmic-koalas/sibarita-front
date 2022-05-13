@@ -1,24 +1,24 @@
-@import "src/scss/base/globales";
-@import "/src/scss/base/mixins";
-@import "src/scss/base/buttons";
+@import 'src/scss/base/globales';
+@import '/src/scss/base/mixins';
+@import 'src/scss/base/buttons';
+
 
 .grid-container-main {
-  display: grid;
-
-  grid-template-columns: auto;
-  text-align: center;
-  justify-items: center;
+    display: grid;
+ 
+    grid-template-columns: auto;
+    text-align: center;
+    justify-items: center;
 }
 
 .grid-container-main h1 {
-  padding: 2rem;
-  color: $secondaryColor;
-  font-weight: $bold;
+    padding: 2rem;
+    color: $secondaryColor;
+    font-weight: $bold;
 }
 .grid-container-main h2 {
-  padding: 20px;
+    padding: 20px;
 }
 .grid-container-main p {
-  padding: 20px;
+    padding: 20px;
 }
-

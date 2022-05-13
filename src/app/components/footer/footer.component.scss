@@ -1,5 +1,5 @@
-@import "src/scss/base/globales";
-@import "src/scss/base/variables";
+@import 'src/scss/base/globales';
+@import 'src/scss/base/variables';
 
 .footer {
   background-color: $primaryColor;
@@ -18,13 +18,16 @@ nav li {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1rem 2rem;
+  background-color: $primaryColor;
+  padding: 30px;
   &:hover {
     color: $primaryColor;
     cursor: pointer;
   }
+
 }
 
 .copyright {
-  color: $textCard;
-  text-align: center;
+    color: $terciaryColor;
+    text-align: center;
 }

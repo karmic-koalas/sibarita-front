@@ -1,34 +1,34 @@
-@import "src/scss/base/globales";
-@import "src/scss/base/variables";
+@import 'src/scss/base/globales';
+@import 'src/scss/base/variables';
 
 * {
-  padding: 0;
-  margin: 0;
-  top: 0;
-  left: 0;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
 }
 
 header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: flex-start;
-  background-color: $primaryColor;
-  color: $secondaryColor;
-  font-weight: $bold;
+    height: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    font-weight: $bold;
 }
 
 header a {
-  color: $white;
-  padding: 0.5rem 2rem;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
 }
 
 header a:hover {
-  cursor: pointer;
+    color: $terciaryColor;
+    cursor: pointer;
 }
 #section-img-landing {
 background-image: url("https://img.freepik.com/foto-gratis/interior-restaurante_1127-3392.jpg?w=1480&t=st=1652464797~exp=1652465397~hmac=1a81182a63991c6bb7043d5d7e4fb91debd2dad80a31a298f2a0d9dae65f6af6");
