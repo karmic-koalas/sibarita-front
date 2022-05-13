@@ -57,4 +57,11 @@ export class BookingsService {
         alert("Can't connect to server.");
       });
   }
+
+  async deleteBookingByToken(token: string | null) {
+    const res = await fetch((this.urlApi + 'byToken/' + token), {
+      method: "DELETE",
+    }).then(response => response.json())
+    .then(response => console.log(response))
+  }
 }

@@ -1,9 +1,9 @@
 <div class="container">
   <h1 class="paneldecontrol">PANEL DE CONTROL</h1>
-  <button (click)="isButtonPressed()" class="btn-blue">
+  <button (click)="isPersonalInformationButtonPressed()" class="btn-blue">
     Información Personal
   </button>
-  <div *ngIf="checked">
+  <div *ngIf="personalInformationChecked">
     <div class="company-info">
       <h2>Nombre de la compañía:</h2>
       <p>{{ company.nickname }}</p>
@@ -39,8 +39,8 @@
       <p>+{{ company.contact.phone }}</p>
     </div>
   </div>
-  <button (click)="isButtonPressed()" class="btn-blue">Reservas</button>
-  <div *ngIf="checked">
+  <button (click)="isBookingsButtonPressed()" class="btn-blue">Reservas</button>
+  <div *ngIf="bookingsChecking">
     <div class="singleBooking" *ngFor="let object of showedBookings">
       <div>
         <p>Día: {{ object.bookingDate.day }}</p>
@@ -58,6 +58,8 @@
       <div>
         <p>Información Adicional: {{ object.textarea }}</p>
       </div>
+      <button class="btn-blue">Eliminar reserva.</button>
+      <button class="btn-blue">Editar reserva.</button>
     </div>
   </div>
 </div>

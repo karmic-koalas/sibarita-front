@@ -14,7 +14,9 @@ export class ControlpanelComponent implements OnInit {
   company: any = {};
   address: any = {};
   contact: any = {};
-  checked: boolean = false;
+  existCheking: boolean = false;
+  personalInformationChecked: boolean = false;
+  bookingsChecking: boolean = false;
   showedBookings: TbookingGET[] = [];
   showedBooking: TbookingGET = {
     client: 'a',
@@ -54,7 +56,7 @@ export class ControlpanelComponent implements OnInit {
           this.address = result.address;
           this.contact = result.contact;
         } else {
-          this.checked = false;
+          this.existCheking = false;
         }
       })
       .catch((err) => {
@@ -63,7 +65,7 @@ export class ControlpanelComponent implements OnInit {
           'Error',
           'No se pudo conectar con el Servidor'
         );
-        this.checked = false;
+        this.existCheking = false;
       });
   }
 
@@ -85,11 +87,27 @@ export class ControlpanelComponent implements OnInit {
       });
   }
 
-  isButtonPressed() {
-    if (this.checked === false) {
-      this.checked = true;
+  async deleteOneBookingByToken() {
+    const tokenCompany = this.route.snapshot.paramMap.get('bookingToken');
+    return await this.BookingsService.deleteBookingByToken(tokenCompany)
+    .then()
+  }
+
+  isPersonalInformationButtonPressed() {
+    console.log("personal information button works")
+    if (this.personalInformationChecked === false) {
+      this.personalInformationChecked = true;
     } else {
-      this.checked = false;
+      this.personalInformationChecked = false;
+    }
+  }
+
+  isBookingsButtonPressed() {
+    console.log("bookings button works")
+    if (this.bookingsChecking === false) {
+      this.bookingsChecking = true;
+    } else {
+      this.bookingsChecking = false;
     }
   }
 }
