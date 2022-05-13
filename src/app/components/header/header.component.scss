@@ -1,32 +1,33 @@
-@import 'src/scss/base/globales';
-@import 'src/scss/base/variables';
+@import "src/scss/base/globales";
+@import "src/scss/base/variables";
 
 * {
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
 }
 
 header {
-    height: 2em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: flex-start;
-    background-color: $primaryColor;
-    color: $secondaryColor;
-    font-weight: $bold;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  background-color: $primaryColor;
+  color: $secondaryColor;
+  font-weight: $bold;
 }
 
 header a {
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
+  color: $white;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 header a:hover {
-    color: $terciaryColor;
-    cursor: pointer;
+  color: red;
+  cursor: pointer;
 }
