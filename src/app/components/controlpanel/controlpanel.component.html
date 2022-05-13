@@ -50,6 +50,9 @@
         <p>Número de personas: {{ object.numPerson }}</p>
       </div>
       <div>
+        <p>Token: {{ object.bookingToken }}</p>
+      </div>
+      <div>
         <p>Telefono: {{ object.contact.phone }}</p>
       </div>
       <div>
@@ -58,8 +61,13 @@
       <div>
         <p>Información Adicional: {{ object.textarea }}</p>
       </div>
-      <button class="btn-blue">Eliminar reserva.</button>
-      <button class="btn-blue">Editar reserva.</button>
+      <button
+        (click)="deleteOneBookingByToken(object.bookingToken)"
+        class="btn-blue"
+      >
+        Eliminar reserva.
+      </button>
+      <!-- <button class="btn-blue">Editar reserva.</button> -->
     </div>
   </div>
 </div>

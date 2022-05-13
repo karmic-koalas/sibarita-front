@@ -74,8 +74,10 @@ export class ControlpanelComponent implements OnInit {
     return this.BookingsService.getAllBookingsByOwner(company)
       .then((res) => {
         console.log(res, 'pre if');
-        if (res) {
-          this.showedBookings.push(res);
+        if (res !== null) {
+          console.log(res);
+          this.showedBookings = res;
+          console.log(this.showedBookings);
         } else {
           console.log(
             'No se ha podido obtener el res porque si estuviera vacío te lo iba a dar igualmente'
@@ -87,14 +89,16 @@ export class ControlpanelComponent implements OnInit {
       });
   }
 
-  async deleteOneBookingByToken() {
-    const tokenCompany = this.route.snapshot.paramMap.get('bookingToken');
-    return await this.BookingsService.deleteBookingByToken(tokenCompany)
-    .then()
+  async deleteOneBookingByToken(token: string) {
+    //const tokenCompany = this.route.snapshot.paramMap.get('bookingToken');
+    return await this.BookingsService.deleteBookingByToken(token).then(() => {
+      location.reload();
+      this.bookingsChecking = true;
+    });
   }
 
   isPersonalInformationButtonPressed() {
-    console.log("personal information button works")
+    console.log('personal information button works');
     if (this.personalInformationChecked === false) {
       this.personalInformationChecked = true;
     } else {
@@ -103,7 +107,7 @@ export class ControlpanelComponent implements OnInit {
   }
 
   isBookingsButtonPressed() {
-    console.log("bookings button works")
+    console.log('bookings button works');
     if (this.bookingsChecking === false) {
       this.bookingsChecking = true;
     } else {

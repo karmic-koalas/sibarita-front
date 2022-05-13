@@ -33,7 +33,8 @@ export class BookingsService {
   }
 
   async getAllBookingsByOwner(owner: string | null) {
-    const res = await fetch(this.urlApi + 'byOwner/' + owner);
+    const res = await fetch(this.urlApi + 'allByOwner/' + owner);
+    console.log(res);
     return await res.json();
   }
 
@@ -59,9 +60,30 @@ export class BookingsService {
   }
 
   async deleteBookingByToken(token: string | null) {
-    const res = await fetch((this.urlApi + 'byToken/' + token), {
-      method: "DELETE",
-    }).then(response => response.json())
-    .then(response => console.log(response))
+    const res = await fetch(this.urlApi + 'byToken/delete/' + token, {
+      method: 'DELETE',
+    })
+      .then((response) => response.json())
+      .then((response) => console.log(response));
   }
+
+  // async editBookingByToken(checkBookingData: Tbooking) {
+  //   return fetch(this.urlApi + 'byToken/put/' + token, {
+  //     method: 'PUT',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(checkBookingData),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       if (res != null) {
+  //         console.log(res);
+  //         return res;
+  //       } else {
+  //         console.log('Falla');
+  //       }
+  //     })
+  //     .catch(() => {
+  //       alert("Can't connect to server.");
+  //     });
+  // }
 }
