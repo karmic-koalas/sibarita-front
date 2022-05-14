@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, CanActivate, Router } from '@angular/router';
 import { TbookingGET } from 'src/app/models/TbookingGET';
+import { AuthService } from 'src/app/services/auth.service';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
@@ -38,10 +39,25 @@ export class ControlpanelComponent implements OnInit {
     private BookingsService: BookingsService,
     private route: ActivatedRoute,
     private SweetAlert: SweetAlertService,
-    private CompaniesService: CompaniesService
+    private CompaniesService: CompaniesService,
+    private authService: AuthService,
+    private redirect: Router
   ) {
+
+    if(!this.authService.isLogged()) {
+      this.redirect.navigate(['/']);
+    }
+
     this.loadCompany();
     this.getAllBookingsByOwner();
+  }
+
+  CanActive() {
+    if (!this.authService.isLogged()) {
+      this.redirect.navigate(['/']);
+      return false;
+    }
+    return true;
   }
 
   ngOnInit(): void {}

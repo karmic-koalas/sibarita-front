@@ -21,6 +21,8 @@ import { ButtonModule } from 'primeng/button';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { CommonModule } from '@angular/common';
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ControlpanelComponent } from './components/controlpanel/controlpanel.co
     BookingsComponent,
     HomeComponent,
     FormularioComponent,
+    LoginComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
