@@ -4,12 +4,14 @@ import { CompanyComponent } from './components/company/company.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { HomeComponent } from './components/home/home.component';
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ControlpanelComponent },
   { path: ':company', component: CompanyComponent },
-  { path: ':company/profile', component: ControlpanelComponent },
-  { path: ':company/:bookingToken', component: BookingsComponent },
+  { path: ':company/:bookingToken', component: BookingsComponent }
 ];
 
 @NgModule({

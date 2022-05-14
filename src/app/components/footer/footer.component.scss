@@ -2,29 +2,8 @@
 @import 'src/scss/base/variables';
 
 .footer {
-  background-color: $primaryColor;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-nav li {
-  list-style: none;
-  display: flex;
-}
-
-nav li {
-  color: $textCard;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 1rem 2rem;
-  background-color: $primaryColor;
-  padding: 30px;
-  &:hover {
-    color: $primaryColor;
-    cursor: pointer;
-  }
-
+    background-color: $primaryColor;
+    padding: 30px;
 }
 
 .copyright {
