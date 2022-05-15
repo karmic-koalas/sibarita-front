@@ -1,19 +1,19 @@
-@import "./scss/base/normalize";
-@import "./scss/base/variables";
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+@import './scss/base/normalize';
+@import './scss/base/variables';
 @import "./scss/components/sweetAlert";
 
 html {
-  font-size: 62.5%; /* 1rem = 10px */
-  box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+body, html {
+    background-color: $bgColor;
 }
 
-body,
-html {
-  background-color: $bgColor;
-}
