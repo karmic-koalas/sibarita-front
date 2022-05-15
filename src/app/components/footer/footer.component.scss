@@ -1,12 +1,30 @@
-@import 'src/scss/base/globales';
-@import 'src/scss/base/variables';
+@import "src/scss/base/globales";
+@import "src/scss/base/variables";
 
 .footer {
-    background-color: $primaryColor;
-    padding: 30px;
+  background-color: $bgCard;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+nav li {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  color: $textCard;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  &:hover {
+    color: $primaryColor;
+    cursor: pointer;
+  }
 }
 
 .copyright {
-    color: $terciaryColor;
-    text-align: center;
+  color: $textCard;
+  text-align: center;
 }
