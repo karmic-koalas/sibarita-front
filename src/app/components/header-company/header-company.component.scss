@@ -2,8 +2,7 @@
 @import "/src/scss/base/mixins";
 @import "src/scss/base/variables";
 #header {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-block;
   padding: 2rem;
   width: 100%;
   // @include tablet(){
@@ -44,14 +43,19 @@
   font-size: 18px;
   text-align: center;
 }
+
 #identifier {
   font-weight: $delgada;
+
   line-height: 1rem;
   font-size: 13px;
   @include tablet(){
     justify-content: center;
-    align-items: center;
+    align-items: cente
     line-height: 1rem;
     font-weight: $delgada;
    }
 }
+
+
+
