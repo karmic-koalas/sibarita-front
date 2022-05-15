@@ -1,25 +1,60 @@
-@import 'src/scss/base/globales';
-@import '/src/scss/base/mixins';
 
-.container {
+@import "src/scss/base/globales";
+@import "/src/scss/base/mixins";
+@import "src/scss/base/variables";
+#header {
+  display: inline-block;
+  padding: 2rem;
+  width: 100%;
+  // @include tablet(){
+  //  justify-content: center;
+  //   align-items: center;
+  // }
+}
+
+#profile-img {
+  width: 71px;
+  height: 71px;
+  left: 19px;
+  top: 0px;
+  border-radius: 100px;
+  @include tablet(){
+    margin-left: 18rem;
+  }
+}
+
+#profile-info {
+  width : 6rem;
+  text-align: left;
+  margin-left: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  align-items: left;
+  @include tablet(){
+    width: 2rem;
     text-align: center;
-    padding: 30px 0;
+    margin-left: 3rem;
+   }
 
-    @include tablet {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
-.container img {
-    display: block;
-    margin: 0 auto;
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-
-    @include tablet {
-        margin: 0 25px 0 0;
-    }
+#name {
+  font-weight: $bold;
+  line-height: 2rem;
+  font-size: 18px;
+  text-align: center;
 }
+
+#identifier {
+  font-weight: $delgada;
+
+  line-height: 1rem;
+  font-size: 13px;
+  @include tablet(){
+    justify-content: center;
+    align-items: cente
+    line-height: 1rem;
+    font-weight: $delgada;
+   }
+}
+
