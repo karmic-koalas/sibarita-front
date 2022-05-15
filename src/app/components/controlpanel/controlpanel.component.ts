@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, CanActivate, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TbookingGET } from 'src/app/models/TbookingGET';
 import { AuthService } from 'src/app/services/auth.service';
 import { BookingsService } from 'src/app/services/bookings.service';
@@ -44,20 +44,12 @@ export class ControlpanelComponent implements OnInit {
     private redirect: Router
   ) {
 
-    if(!this.authService.isLogged()) {
-      this.redirect.navigate(['/']);
-    }
-
-    this.loadCompany();
-    this.getAllBookingsByOwner();
-  }
-
-  CanActive() {
     if (!this.authService.isLogged()) {
       this.redirect.navigate(['/']);
-      return false;
     }
-    return true;
+    
+    this.loadCompany();
+    this.getAllBookingsByOwner();
   }
 
   ngOnInit(): void {}

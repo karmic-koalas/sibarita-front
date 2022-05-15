@@ -37,7 +37,6 @@ export class LoginFormComponent implements OnInit {
           if(typeof res !== 'string') {
             alert(res.message);
           } else {
-            console.log(res);
             this.redirect.navigate(['/profile']);
           }
         })

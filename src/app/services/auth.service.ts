@@ -34,29 +34,24 @@ export class AuthService {
   }
 
   isLogged() {
-    const token = sessionStorage.getItem('user');
+    const token = sessionStorage.getItem('authorization');
 
-    if(typeof token === "string") {
+    if(token !== null) {
       return fetch(this.urlApi, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(token),
+        headers: { authorization: token }
       })
-      .then( res => {
-        console.log(res);
-        
-      })
+      .then( res => res.json())
+      .then( res => res)
       .catch( err => {
         console.log(err);
         alert("Can't connect to server.");
       });
     }
-    
-    
-    return true;
+    return false;
   }
 
   private saveUser(token: string) {
-    sessionStorage.setItem('user', token);
+    sessionStorage.setItem('authorization', token);
   }
 }
