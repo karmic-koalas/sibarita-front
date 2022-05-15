@@ -1,23 +1,57 @@
 @import "src/scss/base/globales";
 @import "/src/scss/base/mixins";
-
+@import "src/scss/base/variables";
 #header {
   display: flex;
   flex-wrap: wrap;
   padding: 2rem;
+  width: 100%;
+  // @include tablet(){
+  //  justify-content: center;
+  //   align-items: center;
+  // }
 }
 
 #profile-img {
-  margin: 0 auto;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
+  width: 71px;
+  height: 71px;
+  left: 19px;
+  top: 0px;
+  border-radius: 100px;
+  @include tablet(){
+    margin-left: 18rem;
+  }
+}
+
+#profile-info {
+  width : 6rem;
+  text-align: left;
+  margin-left: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  align-items: left;
+  @include tablet(){
+    width: 2rem;
+    text-align: center;
+    margin-left: 3rem;
+   }
+
 }
 
 #name {
-  font-weight: $regular;
+  font-weight: $bold;
+  line-height: 2rem;
+  font-size: 18px;
+  text-align: center;
 }
 #identifier {
   font-weight: $delgada;
+  line-height: 1rem;
+  font-size: 13px;
+  @include tablet(){
+    justify-content: center;
+    align-items: center;
+    line-height: 1rem;
+    font-weight: $delgada;
+   }
 }
-
