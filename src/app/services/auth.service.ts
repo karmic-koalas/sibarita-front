@@ -5,7 +5,7 @@ import { Tuser } from '../models/Tuser';
   providedIn: 'root'
 })
 export class AuthService {
-  private urlApi = 'http://localhost:3000/auth/';
+  private urlApi = 'http://80.240.126.155:3000/auth/';
 
   constructor() { }
 

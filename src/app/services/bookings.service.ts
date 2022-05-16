@@ -6,7 +6,7 @@ import { TcheckingBooking } from '../models/TcheckingBooking';
   providedIn: 'root',
 })
 export class BookingsService {
-  private urlApi = 'http://localhost:3000/bookings/';
+  private urlApi = 'http://80.240.126.155:3000/bookings/';
 
   resToken: string = '';
 
