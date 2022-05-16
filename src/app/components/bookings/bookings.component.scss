@@ -1,0 +1,66 @@
+@import "src/scss/base/_mixins";
+@import "src/scss/base/_buttons";
+@import "src/scss/base/_tipografia";
+
+.card-container {
+    border: 1px solid grey;
+    margin: 1rem;
+    background-color: whitesmoke;
+    padding: 2rem;
+    border-radius: 1rem;
+    font-family: $fuente_principal;
+
+        h4 {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        a {
+            font-size: 2rem;
+            text-decoration: underline;
+        }
+
+        .h4-nombre {
+            padding-top: 2rem;
+        }
+    }
+    
+    
+
+
+
+
+
+
+
+
+
+
+/* form div {
+display: flex;
+flex-direction: column;
+}
+
+form div input {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px thin grey;
+    font-size: 2rem;
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 0.5rem;
+    @include tablet() {
+        width: 40rem;
+    }
+}
+form div label {
+    color: $secondaryColor;
+    font-size: 1rem;
+    font-family: sans-serif;
+    padding: 0.5rem;
+}
+
+.submit {
+    margin: 1rem;
+} */

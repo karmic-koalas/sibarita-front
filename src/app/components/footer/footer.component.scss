@@ -2,11 +2,15 @@
 @import 'src/scss/base/variables';
 
 .footer {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
     background-color: $primaryColor;
     padding: 30px;
 }
 
 .copyright {
-    color: $terciaryColor;
+    color: white;
     text-align: center;
 }

@@ -103,6 +103,7 @@
       id="tel"
       name="tel"
       formControlName="tel"
+      placeholder="Teléfono de contacto"
     />
     <div
       *ngIf="bookingForm.get('tel')?.touched && bookingForm.get('tel')?.errors?.['required']"
@@ -122,6 +123,7 @@
       }"
       id="email"
       name="email"
+      placeholder="Email de contacto"
       formControlName="email"
     />
     <div
@@ -135,6 +137,7 @@
     <label for="coment">Comentario</label>
     <textarea
       type="time"
+      placeholder="Añada un comentario adicional..."
       [ngClass]="{
         'is-invalid':
           bookingForm.get('coment')?.touched &&
@@ -156,6 +159,8 @@
   </div>
 
   <div>
-    <button type="submit" [disabled]="bookingForm.invalid">Enviar</button>
+    <button class="btn-blue" type="submit" [disabled]="bookingForm.invalid">
+      Enviar
+    </button>
   </div>
 </form>

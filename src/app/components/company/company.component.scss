@@ -1,14 +1,24 @@
-// @import '/src/scss/base/globales';
-// @import '/src/scss/base/mixins';
-// @import '/src/scss/base/buttons';
-// @import '/src/scss/base/utilities';
+@import 'src/scss/base/globales';
+@import '/src/scss/base/mixins';
+@import '/src/scss/base/tipografia';
 
-// .grid {
-//     @include tablet {
-//         @include grid-custom(2fr, 20px);
-//     }
-// }
+.container {
+    padding: 1rem;
+    font-family: $fuente_principal;
+    
+    .description {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
 
-// .content {
-//     margin-bottom: 2rem;
-// }
+    @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.notfound {
+    display: flex;
+    height: 73.5vh;
+}
