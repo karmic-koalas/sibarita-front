@@ -5,13 +5,11 @@
     [nickname]="company.nickname"
   ></app-header-company>
 
-  <div class="container">
-    <main class="grid">
-      <div class="content">
-        <h3>DESCRIPCIÓN</h3>
-        <h4 class="description">{{ company.description }}</h4>
-      </div>
-
+  <main>
+    <div class="description-company">
+      <h1 class="description">{{ company.description }}</h1>
+    </div>
+    <div class="container">
       <aside>
         <div class="flex">
           <p>
@@ -26,10 +24,9 @@
           <p>{{ contact.email }}</p>
         </div>
       </aside>
-
       <app-formulario></app-formulario>
-    </main>
-  </div>
+    </div>
+  </main>
 </div>
 
 <div *ngIf="!checked">

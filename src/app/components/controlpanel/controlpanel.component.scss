@@ -2,9 +2,6 @@
 // @import '/src/scss/base/mixins';
 // @import '/src/scss/base/buttons';
 
-
-
-
 // .singleBooking {
 //     padding: 10px;
 //     border: 1px solid black;
@@ -19,3 +16,9 @@
 //     flex-wrap: wrap;
 //     flex-direction: column;
 // }
+
+.container {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem 2rem;
+}

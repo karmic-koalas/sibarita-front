@@ -15,11 +15,13 @@
     />
     <div
       *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['required']"
+      class="alert"
     >
       Name is required
     </div>
     <div
       *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['minlength']"
+      class="alert"
     >
       Name must have a minimum of
       {{ bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['minlength']?.requiredLength }}
@@ -45,6 +47,7 @@
     />
     <div
       *ngIf="bookingForm.get('persons')?.touched && bookingForm.get('persons')?.errors?.['required']"
+      class="alert"
     >
       Persons is required
     </div>
@@ -66,6 +69,7 @@
     />
     <div
       *ngIf="bookingForm.get('date')?.touched && bookingForm.get('date')?.errors?.['required']"
+      class="alert"
     >
       Date is required
     </div>
@@ -86,6 +90,7 @@
     /><!-- Falta validacion min y max -->
     <div
       *ngIf="bookingForm.get('time')?.touched && bookingForm.get('time')?.errors?.['required']"
+      class="alert"
     >
       Time is required
     </div>
@@ -107,6 +112,7 @@
     />
     <div
       *ngIf="bookingForm.get('tel')?.touched && bookingForm.get('tel')?.errors?.['required']"
+      class="alert"
     >
       Tel is required
     </div>
@@ -128,6 +134,7 @@
     />
     <div
       *ngIf="bookingForm.get('email')?.touched && bookingForm.get('email')?.errors?.['email']"
+      class="alert"
     >
       Email format is invalid or incorrect
     </div>
@@ -152,6 +159,7 @@
     </textarea>
     <div
       *ngIf="bookingForm.get('coment')?.touched && bookingForm.get('coment')?.errors?.['maxlength']"
+      class="alert"
     >
       Longitud demasiado larga. Tiene un máximo de 140 caracteres.
     </div>
