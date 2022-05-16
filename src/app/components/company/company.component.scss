@@ -1,14 +1,14 @@
-@import '/src/scss/base/globales';
-@import '/src/scss/base/mixins';
-@import '/src/scss/base/buttons';
-@import '/src/scss/base/utilities';
+// @import '/src/scss/base/globales';
+// @import '/src/scss/base/mixins';
+// @import '/src/scss/base/buttons';
+// @import '/src/scss/base/utilities';
 
-.grid {
-    @include tablet {
-        @include grid-custom(2fr, 20px);
-    }
-}
+// .grid {
+//     @include tablet {
+//         @include grid-custom(2fr, 20px);
+//     }
+// }
 
-.content {
-    margin-bottom: 2rem;
-}
+// .content {
+//     margin-bottom: 2rem;
+// }

@@ -1,0 +1,22 @@
+@import 'variables';
+
+h1, h2, h3, h4 {
+    font-family: $fuente_principal;
+    font-weight: 900;
+    color: black;
+    text-align: center;
+    margin: 0 0 calc($separacion/2) 0;
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.5rem;
+}
+h3 {
+    font-size: 3rem;
+}
+p {
+    color: black;
+    font-size: 2rem;
+}

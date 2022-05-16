@@ -1,8 +1,8 @@
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap');
+
 @import './scss/base/normalize';
 @import './scss/base/variables';
+@import './scss/base/tipografia';
 @import "./scss/components/sweetAlert";
 
 html {
@@ -13,7 +13,16 @@ html {
     box-sizing: inherit;
 }
 
-body, html {
-    background-color: $bgColor;
+.container {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
 }
 
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}

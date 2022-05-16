@@ -1,32 +1,68 @@
 @import 'src/scss/base/globales';
 @import 'src/scss/base/variables';
-
-* {
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-}
+@import 'src/scss/base/mixins';
 
 header {
-    height: 2em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: flex-start;
     background-color: $primaryColor;
-    color: $secondaryColor;
-    font-weight: $bold;
+
+    .content-header {
+        padding: 2.5rem 0;
+
+        @include tablet {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    h1 {
+        color: white;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
 }
 
-header a {
-    padding-left: 10px;
+nav {
     display: flex;
-    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+
+    a {
+        font-size: 2rem;
+        color: white;
+
+        &:hover {
+            color: black;
+        }
+    }
 }
 
-header a:hover {
-    color: $terciaryColor;
-    cursor: pointer;
-}
+// * {
+//     padding: 0;
+//     margin: 0;
+//     top: 0;
+//     left: 0;
+// }
+
+// header {
+//     height: 2em;
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: nowrap;
+//     align-content: center;
+//     justify-content: flex-start;
+//     background-color: $primaryColor;
+//     color: $secondaryColor;
+//     font-weight: $bold;
+// }
+
+// header a {
+//     padding-left: 10px;
+//     display: flex;
+//     align-items: center;
+// }
+
+// header a:hover {
+//     color: $terciaryColor;
+//     cursor: pointer;
+// }
