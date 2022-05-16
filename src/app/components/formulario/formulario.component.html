@@ -129,7 +129,7 @@
     <div
       *ngIf="bookingForm.get('email')?.touched && bookingForm.get('email')?.errors?.['email']"
     >
-      Email format is incorrect
+      Email format is invalid or incorrect
     </div>
   </div>
 
@@ -153,8 +153,7 @@
     <div
       *ngIf="bookingForm.get('coment')?.touched && bookingForm.get('coment')?.errors?.['maxlength']"
     >
-      Longitud demasiado larga, no puede usted mi señore superer les 140
-      caracteres
+      Longitud demasiado larga. Tiene un máximo de 140 caracteres.
     </div>
   </div>
 

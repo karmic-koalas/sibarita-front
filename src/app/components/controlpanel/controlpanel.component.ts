@@ -43,11 +43,10 @@ export class ControlpanelComponent implements OnInit {
     private authService: AuthService,
     private redirect: Router
   ) {
-
     if (!this.authService.isLogged()) {
       this.redirect.navigate(['/']);
     }
-    
+
     this.loadCompany();
     this.getAllBookingsByOwner();
   }
@@ -57,6 +56,7 @@ export class ControlpanelComponent implements OnInit {
   async loadCompany() {
     // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
     const nameCompany = this.route.snapshot.paramMap.get('company');
+
     return this.CompaniesService.getCompanyByName(nameCompany)
       .then((result) => {
         if (result) {
@@ -79,6 +79,7 @@ export class ControlpanelComponent implements OnInit {
 
   async getAllBookingsByOwner() {
     const company = this.route.snapshot.paramMap.get('company');
+
     return this.BookingsService.getAllBookingsByOwner(company)
       .then((res) => {
         console.log(res, 'pre if');

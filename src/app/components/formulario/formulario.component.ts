@@ -52,7 +52,10 @@ export class FormularioComponent implements OnInit {
         [Validators.required, Validators.minLength(9), Validators.maxLength(9)],
       ],
       coment: ['', [Validators.minLength(0), Validators.maxLength(140)]],
-      email: ['', [Validators.email]],
+      email: [
+        '',
+        [Validators.required, Validators.minLength(0), Validators.email],
+      ],
     });
   }
 
