@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="bookingForm">
   <div>
-    <label for="name">Nombre</label>
+    <label id="captions" for="name">Nombre*</label>
     <input
       type="text"
       [ngClass]="{
@@ -30,7 +30,7 @@
   </div>
 
   <div>
-    <label for="persons">Personas</label>
+    <label id="captions" for="persons">Personas*</label>
     <input
       type="number"
       [ngClass]="{
@@ -54,7 +54,7 @@
   </div>
 
   <div>
-    <label for="date">Fecha</label>
+    <label id="captions" for="date">Fecha*</label>
     <input
       type="date"
       [ngClass]="{
@@ -76,7 +76,7 @@
   </div>
 
   <div>
-    <label for="time">Hora</label>
+    <label id="captions" for="time">Hora*</label>
     <input
       type="time"
       [ngClass]="{
@@ -98,7 +98,7 @@
 
   <!-- Tlf obligatorio, y falta validacion-->
   <div>
-    <label for="tel">Télefono</label>
+    <label id="captions" for="tel">Télefono*</label>
     <input
       type="tel"
       [ngClass]="{
@@ -120,7 +120,7 @@
 
   <!-- Tlf obligatorio, y falta validacion-->
   <div>
-    <label for="email">Email</label>
+    <label id="captions" for="email">Email</label>
     <input
       type="email"
       [ngClass]="{
@@ -141,7 +141,7 @@
   </div>
 
   <div>
-    <label for="coment">Comentario</label>
+    <label id="captions" for="coment">Comentario</label>
     <textarea
       type="time"
       placeholder="Añada un comentario adicional..."
@@ -163,6 +163,11 @@
     >
       Longitud demasiado larga. Tiene un máximo de 140 caracteres.
     </div>
+  </div>
+  <div>
+    <label id="captions">
+      Los campos marcados con el simbolo * son obligatorios.
+    </label>
   </div>
 
   <div>
