@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Tuser } from '../models/Tuser';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private urlApi = 'http://80.240.126.155:3000/auth/';
+  private urlApi = environment.indexApiUrl + '/auth/';
 
-  constructor() { }
+  constructor() {}
 
   async login(user: Tuser) {
     return fetch(this.urlApi + 'login', {
@@ -15,19 +16,19 @@ export class AuthService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
     })
-      .then( res => res.json())
-      .then( res => {
-          if (res != null) {
-            console.log('Ta weno!');
-            if(typeof res === 'string') {
-              this.saveUser(res);
-              return 'camejo.session';
-            }
-            return res;
+      .then((res) => res.json())
+      .then((res) => {
+        if (res != null) {
+          console.log('Ta weno!');
+          if (typeof res === 'string') {
+            this.saveUser(res);
+            return 'camejo.session';
           }
-          console.log('No ta weno');
-        })
-      .catch( (err) => {
+          return res;
+        }
+        console.log('No ta weno');
+      })
+      .catch((err) => {
         console.log(err);
         alert("Can't connect to server.");
       });
@@ -36,17 +37,17 @@ export class AuthService {
   isLogged() {
     const token = sessionStorage.getItem('authorization');
 
-    if(token !== null) {
+    if (token !== null) {
       return fetch(this.urlApi, {
         method: 'POST',
-        headers: { authorization: token }
+        headers: { authorization: token },
       })
-      .then( res => res.json())
-      .then( res => res)
-      .catch( err => {
-        console.log(err);
-        alert("Can't connect to server.");
-      });
+        .then((res) => res.json())
+        .then((res) => res)
+        .catch((err) => {
+          console.log(err);
+          alert("Can't connect to server.");
+        });
     }
     return false;
   }

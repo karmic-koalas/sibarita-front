@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Tcompany } from '../models/Tcompany';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CompaniesService {
-  private urlApi = 'http://80.240.126.155:3000/companies';
+  private urlApi = environment.indexApiUrl + '/companies';
 
   constructor() {}
 
