@@ -42,6 +42,7 @@
             "production": {
               "buildOptimizer": true,
               "optimization": true,
+              "vendorChunk": true,
               "budgets": [
                 {
                   "type": "initial",
