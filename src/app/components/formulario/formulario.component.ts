@@ -26,6 +26,7 @@ export class FormularioComponent implements OnInit {
     textArea: '',
   };
   company: string | null;
+
   constructor(
     private route: ActivatedRoute,
     private redirect: Router,
@@ -47,15 +48,9 @@ export class FormularioComponent implements OnInit {
       persons: ['', [Validators.required]],
       date: ['', [Validators.required]],
       time: ['', [Validators.required]],
-      tel: [
-        '',
-        [Validators.required, Validators.minLength(9), Validators.maxLength(9)],
-      ],
+      tel: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
       coment: ['', [Validators.minLength(0), Validators.maxLength(140)]],
-      email: [
-        '',
-        [Validators.required, Validators.minLength(0), Validators.email],
-      ],
+      email: ['', [Validators.minLength(0), Validators.email]],
     });
   }
 
@@ -81,9 +76,7 @@ export class FormularioComponent implements OnInit {
         console.log(res.owner);
         console.log(res.bookingToken);
         console.log(res.owner + '/' + res.bookingToken);
-        return this.redirect.navigate([
-          '/' + res.owner + '/' + res.bookingToken,
-        ]);
+        return this.redirect.navigate(['/' + res.owner + '/' + res.bookingToken]);
       });
     }
   }
