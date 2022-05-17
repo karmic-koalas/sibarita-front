@@ -2,20 +2,27 @@
 @import '/src/scss/base/mixins';
 @import '/src/scss/base/tipografia';
 
+h1 {
+    font-weight: $bold;
+    font-size: 2.5rem;
+
+    @include tablet {
+        font-size: 3.5rem;
+    }
+}
 .container {
     padding: 1rem;
-    font-family: $fuente_principal;
+
+    @include tablet {
+        @include grid( 2, 2rem );
+    }
     
     .description {
         font-size: 2.5rem;
         font-weight: 600;
     }
 
-    @include tablet {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+
 }
 
 .notfound {

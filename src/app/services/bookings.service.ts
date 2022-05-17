@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Tbooking } from '../models/Tbooking';
 import { TcheckingBooking } from '../models/TcheckingBooking';
 
@@ -6,7 +7,7 @@ import { TcheckingBooking } from '../models/TcheckingBooking';
   providedIn: 'root',
 })
 export class BookingsService {
-  private urlApi = 'http://localhost:3000/bookings/';
+  private urlApi = environment.indexApiUrl + '/bookings/';
 
   resToken: string = '';
 

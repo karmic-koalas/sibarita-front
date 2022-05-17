@@ -1,6 +1,11 @@
 @import "src/scss/base/globales";
+@import "src/scss/base/variables";
 @import "/src/scss/base/mixins";
 @import "src/scss/base/tipografia";
+
+h2, p {
+  font-weight: $bold;
+}
 
 .container {
   text-align: center;
@@ -22,5 +27,13 @@
 
   @include tablet {
     margin: 0 25px 0 0;
+  }
+}
+
+.company-info {
+  @include tablet {
+    p {
+      text-align: initial;
+    }
   }
 }
