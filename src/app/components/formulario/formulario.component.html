@@ -4,7 +4,8 @@
     <input
       type="text"
       [ngClass]="{
-        'is-invalid': bookingForm.get('name')?.touched && !bookingForm.get('name')?.valid
+        'is-invalid':
+          (isSubmitted || bookingForm.get('name')?.touched) && !bookingForm.get('name')?.valid
       }"
       id="name"
       name="name"
@@ -33,7 +34,8 @@
     <input
       type="number"
       [ngClass]="{
-        'is-invalid': bookingForm.get('persons')?.touched && !bookingForm.get('persons')?.valid
+        'is-invalid':
+          (isSubmitted || bookingForm.get('persons')?.touched) && !bookingForm.get('persons')?.valid
       }"
       id="persons"
       min="1"
@@ -55,7 +57,8 @@
     <input
       type="date"
       [ngClass]="{
-        'is-invalid': bookingForm.get('date')?.touched && !bookingForm.get('date')?.valid
+        'is-invalid':
+          (isSubmitted || bookingForm.get('date')?.touched) && !bookingForm.get('date')?.valid
       }"
       id="date"
       name="date"
@@ -76,7 +79,8 @@
     <input
       type="time"
       [ngClass]="{
-        'is-invalid': bookingForm.get('time')?.touched && !bookingForm.get('time')?.valid
+        'is-invalid':
+          (isSubmitted || bookingForm.get('time')?.touched) && !bookingForm.get('time')?.valid
       }"
       id="time"
       name="time"
@@ -97,7 +101,8 @@
     <input
       type="tel"
       [ngClass]="{
-        'is-invalid': bookingForm.get('tel')?.touched && !bookingForm.get('tel')?.valid
+        'is-invalid':
+          (isSubmitted || bookingForm.get('tel')?.touched) && !bookingForm.get('tel')?.valid
       }"
       id="tel"
       name="tel"
@@ -118,7 +123,8 @@
     <input
       type="email"
       [ngClass]="{
-        'is-invalid': bookingForm.get('email')?.touched && !bookingForm.get('email')?.valid
+        'is-invalid':
+          (isSubmitted || bookingForm.get('email')?.touched) && !bookingForm.get('email')?.valid
       }"
       id="email"
       name="email"
