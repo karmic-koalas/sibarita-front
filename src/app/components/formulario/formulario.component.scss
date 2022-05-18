@@ -2,6 +2,22 @@
 @import "src/scss/base/_buttons";
 @import "src/scss/base/globales";
 
+/*
+* Los siguientes dos bloques desactivan la interfaz
+* que te permite aumentar numeros con un click,
+* la primera lo desahabilita en navegadores basados en
+* chromium y webkit, el segundo lo desahabilita en 
+* mozilla firefox.
+*/
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 form {
   margin: 1rem;
   background-color: whitesmoke;
