@@ -16,17 +16,15 @@ export class AuthService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
     })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res != null) {
-          console.log('Ta weno!');
-          if (typeof res === 'string') {
-            this.saveUser(res);
-            return 'camejo.session';
+      .then((token) => token.json())
+      .then((token) => {
+        if (token != null) {
+          if (typeof token === 'string') {
+            this.saveUser(token);
+            return true;
           }
-          return res;
+          return token;
         }
-        console.log('No ta weno');
       })
       .catch((err) => {
         console.log(err);
@@ -54,5 +52,10 @@ export class AuthService {
 
   private saveUser(token: string) {
     sessionStorage.setItem('authorization', token);
+  }
+
+  logout(){
+    sessionStorage.clear();
+    location.reload();
   }
 }
