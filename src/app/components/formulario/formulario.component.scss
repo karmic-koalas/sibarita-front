@@ -1,5 +1,6 @@
 @import "src/scss/base/_mixins";
 @import "src/scss/base/_buttons";
+@import "src/scss/base/globales";
 
 form {
   margin: 1rem;
@@ -48,6 +49,10 @@ form div {
   margin: 1rem;
 }
 
+.is-invalid {
+  border-color: rgb(169, 9, 9);
+}
+
 textarea {
   font-size: 1.9rem;
 }
@@ -55,4 +60,3 @@ textarea {
 button {
   font-size: 2rem;
 }
-

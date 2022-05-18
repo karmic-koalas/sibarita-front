@@ -160,6 +160,8 @@
   </div>
 
   <div>
-    <button class="btn-blue" type="submit">Enviar</button>
+    <button [ngClass]="{ 'is-invalid': bookingForm.invalid }" class="btn-blue" type="submit">
+      Enviar
+    </button>
   </div>
 </form>
