@@ -13,7 +13,7 @@ import { HeaderCompanyComponent } from './components/header-company/header-compa
 import { FormsModule } from '@angular/forms';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { CookieService } from 'ngx-cookie-service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // PrimeNG
@@ -47,7 +47,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     ButtonModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

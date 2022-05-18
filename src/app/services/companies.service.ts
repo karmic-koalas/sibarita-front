@@ -16,8 +16,8 @@ export class CompaniesService {
     return data;
   }
 
-  async getCompanyByName(name: string | null): Promise<Tcompany> {
-    const response = await fetch(this.urlApi + `/${name}`);
+  async getCompanyByName(sessionToken: string | null): Promise<Tcompany> {
+    const response = await fetch(this.urlApi + `/${sessionToken}`);
     const data = response.status === 200 ? response.json() : false;
     return data;
   }

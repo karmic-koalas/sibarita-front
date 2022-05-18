@@ -18,6 +18,7 @@ export class ControlpanelComponent implements OnInit {
   existCheking: boolean = false;
   personalInformationChecked: boolean = false;
   bookingsChecking: boolean = false;
+  private sessionToken: string | null = sessionStorage.getItem('authorization');
   showedBookings: TbookingGET[] = [];
   showedBooking: TbookingGET = {
     client: 'a',
@@ -57,7 +58,7 @@ export class ControlpanelComponent implements OnInit {
     // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
     const nameCompany = this.route.snapshot.paramMap.get('company');
 
-    return this.CompaniesService.getCompanyByName(nameCompany)
+    return this.CompaniesService.getCompanyByName(this.sessionToken)
       .then((result) => {
         if (result) {
           this.company = result;
@@ -79,14 +80,11 @@ export class ControlpanelComponent implements OnInit {
 
   async getAllBookingsByOwner() {
     const company = this.route.snapshot.paramMap.get('company');
-
-    return this.BookingsService.getAllBookingsByOwner(company)
+    const kompany = 'Burguer_Lolo';
+    return this.BookingsService.getAllBookingsByOwner(kompany)
       .then((res) => {
-        console.log(res, 'pre if');
         if (res !== null) {
-          console.log(res);
           this.showedBookings = res;
-          console.log(this.showedBookings);
         } else {
           console.log(
             'No se ha podido obtener el res porque si estuviera vacío te lo iba a dar igualmente'
@@ -98,16 +96,22 @@ export class ControlpanelComponent implements OnInit {
       });
   }
 
-  async deleteOneBookingByToken(token: string) {
+  async deleteOneBookingByToken(showedBooking: any) {
     //const tokenCompany = this.route.snapshot.paramMap.get('bookingToken');
-    return await this.BookingsService.deleteBookingByToken(token).then(() => {
-      location.reload();
-      this.bookingsChecking = true;
-    });
+    const dataSent: any = {
+      bookingToken: showedBooking.bookingToken,
+      token: sessionStorage.getItem('authorization'),
+    };
+
+    return await this.BookingsService.deleteBookingByToken(dataSent).then(
+      () => {
+        location.reload();
+        this.bookingsChecking = true;
+      }
+    );
   }
 
   isPersonalInformationButtonPressed() {
-    console.log('personal information button works');
     if (this.personalInformationChecked === false) {
       this.personalInformationChecked = true;
     } else {
@@ -116,7 +120,6 @@ export class ControlpanelComponent implements OnInit {
   }
 
   isBookingsButtonPressed() {
-    console.log('bookings button works');
     if (this.bookingsChecking === false) {
       this.bookingsChecking = true;
     } else {
