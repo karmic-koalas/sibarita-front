@@ -9,8 +9,7 @@ export class AuthService {
   private urlApi = environment.indexApiUrl + '/auth/';
   private cookieValue: string;
   constructor(private cookieService: CookieService) {
-    this.cookieService.set('camejo', 'value');
-    this.cookieValue = this.cookieService.get('camejo');
+    this.cookieValue = this.cookieService.get('owner');
   }
 
   async login(user: Tuser) {
