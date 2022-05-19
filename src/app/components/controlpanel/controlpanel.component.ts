@@ -36,10 +36,9 @@ export class ControlpanelComponent implements OnInit {
     },
     textarea: '',
   };
-  private cookieValue: string;
+  private cookieValue: string = '';
   constructor(
     private BookingsService: BookingsService,
-    private route: ActivatedRoute,
     private SweetAlert: SweetAlertService,
     private CompaniesService: CompaniesService,
     private authService: AuthService,
@@ -48,10 +47,11 @@ export class ControlpanelComponent implements OnInit {
   ) {
     if (!this.authService.isLogged()) {
       this.redirect.navigate(['/']);
+    } else {
+      this.cookieValue = this.cookieService.get('owner');
+      this.loadCompany();
+      this.getAllBookingsByOwner();
     }
-    this.cookieValue = this.cookieService.get('owner');
-    this.loadCompany();
-    this.getAllBookingsByOwner();
   }
 
   ngOnInit(): void {}

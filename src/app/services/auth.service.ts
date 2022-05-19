@@ -58,7 +58,7 @@ export class AuthService {
   }
 
   logout(){
+    this.cookieService.delete('owner');
     sessionStorage.clear();
-    location.reload();
   }
 }
