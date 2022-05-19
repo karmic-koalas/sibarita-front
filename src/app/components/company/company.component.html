@@ -1,36 +1,28 @@
-<div *ngIf="checked">
-  <app-header-company
-    [img]="company.image"
-    [owner]="company.owner"
-    [nickname]="company.nickname"
-  ></app-header-company>
+<app-header-company
+  [img]="company.image"
+  [owner]="company.owner"
+  [nickname]="company.nickname"
+></app-header-company>
 
-  <main>
-    <div class="description-company">
-      <h1 class="description">{{ company.description }}</h1>
-    </div>
-    <div class="container">
-      <aside>
-        <div class="flex">
-          <p>
-            {{ address.street }}, {{ address.number }}, {{ address.cp }},
-            {{ address.city }}, {{ address.province }}, {{ address.country }}
-          </p>
-        </div>
-        <div class="flex">
-          <p>+{{ contact.phone }}</p>
-        </div>
-        <div class="flex" *ngIf="contact.email">
-          <p>{{ contact.email }}</p>
-        </div>
-      </aside>
-      <app-formulario></app-formulario>
-    </div>
-  </main>
-</div>
-
-<div *ngIf="!checked">
-  <div class="container notfound">
-    <h1>Perfil no existe</h1>
+<main>
+  <div class="description-company">
+    <h1 class="description">{{ company.description }}</h1>
   </div>
-</div>
+  <div class="container">
+    <aside>
+      <div class="flex">
+        <p>
+          {{ address.street }}, {{ address.number }}, {{ address.cp }}, {{ address.city }},
+          {{ address.province }}, {{ address.country }}
+        </p>
+      </div>
+      <div class="flex">
+        <p>+{{ contact.phone }}</p>
+      </div>
+      <div class="flex" *ngIf="contact.email">
+        <p>{{ contact.email }}</p>
+      </div>
+    </aside>
+    <app-formulario></app-formulario>
+  </div>
+</main>
