@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-controlpanel',
@@ -35,19 +36,20 @@ export class ControlpanelComponent implements OnInit {
     },
     textarea: '',
   };
-
+  private cookieValue: string;
   constructor(
     private BookingsService: BookingsService,
     private route: ActivatedRoute,
     private SweetAlert: SweetAlertService,
     private CompaniesService: CompaniesService,
     private authService: AuthService,
-    private redirect: Router
+    private redirect: Router,
+    private cookieService: CookieService
   ) {
     if (!this.authService.isLogged()) {
       this.redirect.navigate(['/']);
     }
-
+    this.cookieValue = this.cookieService.get('owner');
     this.loadCompany();
     this.getAllBookingsByOwner();
   }
@@ -56,9 +58,9 @@ export class ControlpanelComponent implements OnInit {
 
   async loadCompany() {
     // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
-    const nameCompany = this.route.snapshot.paramMap.get('company');
+    //const nameCompany = this.route.snapshot.paramMap.get('company');
 
-    return this.CompaniesService.getCompanyByName(this.sessionToken)
+    return this.CompaniesService.getCompanyByName(this.cookieValue)
       .then((result) => {
         if (result) {
           this.company = result;
@@ -79,9 +81,9 @@ export class ControlpanelComponent implements OnInit {
   }
 
   async getAllBookingsByOwner() {
-    const company = this.route.snapshot.paramMap.get('company');
-    const kompany = 'Burguer_Lolo';
-    return this.BookingsService.getAllBookingsByOwner(kompany)
+    //const company = this.route.snapshot.paramMap.get('company');
+    // const kompany = 'Burguer_Lolo';
+    return this.BookingsService.getAllBookingsByOwner(this.cookieValue)
       .then((res) => {
         if (res !== null) {
           this.showedBookings = res;
