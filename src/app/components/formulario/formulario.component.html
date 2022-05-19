@@ -1,11 +1,12 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="bookingForm">
   <div>
-    <label id="captions" for="name">Nombre*</label>
+    <label class="captions" for="name">Nombre*</label>
     <input
       type="text"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('name')?.touched) && !bookingForm.get('name')?.valid
+          (isSubmitted || bookingForm.get('name')?.touched) &&
+          !bookingForm.get('name')?.valid
       }"
       id="name"
       name="name"
@@ -30,12 +31,13 @@
   </div>
 
   <div>
-    <label id="captions" for="persons">Personas*</label>
+    <label class="captions" for="persons">Personas*</label>
     <input
       type="number"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('persons')?.touched) && !bookingForm.get('persons')?.valid
+          (isSubmitted || bookingForm.get('persons')?.touched) &&
+          !bookingForm.get('persons')?.valid
       }"
       id="persons"
       min="1"
@@ -53,12 +55,13 @@
   </div>
 
   <div>
-    <label id="captions" for="date">Fecha*</label>
+    <label class="captions" for="date">Fecha*</label>
     <input
       type="date"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('date')?.touched) && !bookingForm.get('date')?.valid
+          (isSubmitted || bookingForm.get('date')?.touched) &&
+          !bookingForm.get('date')?.valid
       }"
       id="date"
       name="date"
@@ -75,12 +78,13 @@
   </div>
 
   <div>
-    <label id="captions" for="time">Hora*</label>
+    <label class="captions" for="time">Hora*</label>
     <input
       type="time"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('time')?.touched) && !bookingForm.get('time')?.valid
+          (isSubmitted || bookingForm.get('time')?.touched) &&
+          !bookingForm.get('time')?.valid
       }"
       id="time"
       name="time"
@@ -97,12 +101,13 @@
 
   <!-- Tlf obligatorio, y falta validacion-->
   <div>
-    <label id="captions" for="tel">Télefono*</label>
+    <label class="captions" for="tel">Télefono*</label>
     <input
       type="tel"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('tel')?.touched) && !bookingForm.get('tel')?.valid
+          (isSubmitted || bookingForm.get('tel')?.touched) &&
+          !bookingForm.get('tel')?.valid
       }"
       id="tel"
       name="tel"
@@ -119,12 +124,13 @@
 
   <!-- Tlf obligatorio, y falta validacion-->
   <div>
-    <label id="captions" for="email">Email</label>
+    <label class="captions" for="email">Email</label>
     <input
       type="email"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('email')?.touched) && !bookingForm.get('email')?.valid
+          (isSubmitted || bookingForm.get('email')?.touched) &&
+          !bookingForm.get('email')?.valid
       }"
       id="email"
       name="email"
@@ -140,12 +146,14 @@
   </div>
 
   <div>
-    <label id="captions" for="coment">Comentario</label>
+    <label class="captions" for="coment">Comentario</label>
     <textarea
       type="time"
       placeholder="Añada un comentario adicional..."
       [ngClass]="{
-        'is-invalid': bookingForm.get('coment')?.touched && !bookingForm.get('coment')?.valid
+        'is-invalid':
+          bookingForm.get('coment')?.touched &&
+          !bookingForm.get('coment')?.valid
       }"
       formControlName="coment"
       name="coment"
@@ -162,11 +170,17 @@
     </div>
   </div>
   <div>
-    <label id="captions"> Los campos marcados con el simbolo * son obligatorios. </label>
+    <label class="captions">
+      Los campos marcados con el simbolo * son obligatorios.
+    </label>
   </div>
 
   <div>
-    <button [ngClass]="{ 'is-invalid': bookingForm.invalid }" class="btn-blue" type="submit">
+    <button
+      [ngClass]="{ 'is-invalid': bookingForm.invalid }"
+      class="btn-blue"
+      type="submit"
+    >
       Enviar
     </button>
   </div>
