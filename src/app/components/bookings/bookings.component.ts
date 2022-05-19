@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TbookingGET } from 'src/app/models/TbookingGET';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { CompaniesService } from 'src/app/services/companies.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-bookings',
@@ -12,8 +13,7 @@ import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 })
 export class BookingsComponent implements OnInit {
   company: any = {};
-  companyAddress: any;
-  checked: boolean = true;
+  companyAddress: any = {};
   booking: TbookingGET = {
     client: '',
     owner: '',
@@ -34,13 +34,16 @@ export class BookingsComponent implements OnInit {
     private CompaniesService: CompaniesService,
     private BookingsService: BookingsService,
     private route: ActivatedRoute,
-    private SweetAlert: SweetAlertService
-  ) {
-    this.loadBookingByToken();
-    this.loadCompany();
-  }
+    private redirect: Router,
+    private SweetAlert: SweetAlertService,
+    private clipboard: Clipboard
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadBookingByToken().then(() => {
+      this.loadCompany();
+    });
+  }
 
   async loadCompany() {
     // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
@@ -48,25 +51,26 @@ export class BookingsComponent implements OnInit {
 
     return this.CompaniesService.getCompanyByName(nameCompany)
       .then((result) => {
-        if (result && result.owner === this.booking.owner) {
-          this.company = result;
-          this.companyAddress = result.address;
+        if (!result || result.owner !== this.booking.owner) {
+          this.redirect.navigateByUrl('/404');
         } else {
-          this.checked = false;
+          this.companyAddress = result.address;
+          this.company = result;
         }
       })
       .catch((err) => {
-        this.SweetAlert.getError(
-          'Error',
-          'No se pudo conectar con el Servidor'
-        );
-        this.checked = false;
+        this.SweetAlert.getError('Error', 'No se pudo conectar con el Servidor');
       });
   }
+
   async loadBookingByToken() {
     const token = this.route.snapshot.paramMap.get('bookingToken');
     return this.BookingsService.getBookingByToken(token).then((res) => {
       this.booking = res;
     });
+  }
+
+  copyToken() {
+    this.clipboard.copy(window.location.href);
   }
 }
