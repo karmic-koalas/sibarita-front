@@ -1,0 +1,21 @@
+@import 'src/scss/base/mixins';
+
+#inner-box {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#image {
+	border-radius: 1rem;
+	background-image: url('../../../assets/image/image-404_notFound.webp');
+	background-position: center;
+	background-size: contain;
+	background-repeat: unset;
+	width: 25rem;
+	aspect-ratio: 1 / 1 ;
+	@include tablet {
+	width: 30rem;
+}
+}
