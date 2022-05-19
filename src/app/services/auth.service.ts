@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Tuser } from '../models/Tuser';
-
+import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private urlApi = environment.indexApiUrl + '/auth/';
-
-  constructor() {}
+  private cookieValue: string;
+  constructor(private cookieService: CookieService) {
+    this.cookieValue = this.cookieService.get('owner');
+  }
 
   async login(user: Tuser) {
     return fetch(this.urlApi + 'login', {
@@ -19,14 +21,13 @@ export class AuthService {
       .then((res) => res.json())
       .then((res) => {
         if (res != null) {
-          console.log('Ta weno!');
-          if (typeof res === 'string') {
-            this.saveUser(res);
-            return 'camejo.session';
+          if (typeof res === 'object') {
+            this.cookieService.set('owner', res.owner);
+            this.saveUser(res.token);
+            return true;
           }
           return res;
         }
-        console.log('No ta weno');
       })
       .catch((err) => {
         console.log(err);
@@ -54,5 +55,10 @@ export class AuthService {
 
   private saveUser(token: string) {
     sessionStorage.setItem('authorization', token);
+  }
+
+  logout(){
+    this.cookieService.delete('owner');
+    sessionStorage.clear();
   }
 }

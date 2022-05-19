@@ -17,6 +17,7 @@ export class CompaniesService {
   }
 
   async getCompanyByName(name: string | null): Promise<Tcompany> {
+    console.log(name);
     const response = await fetch(this.urlApi + `/${name}`);
     const data = response.status === 200 ? response.json() : false;
     return data;

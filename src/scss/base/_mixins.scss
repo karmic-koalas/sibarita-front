@@ -1,50 +1,56 @@
-@import 'variables';
+@import "variables";
 
 /** Media Queries **/
 @mixin tlf {
-    @media (min-width: $telefono) {
-        @content;
-    }
+  @media (min-width: $telefono) {
+    @content;
+  }
 }
 @mixin tablet {
-    @media (min-width: $tablet) {
-        @content;
-    }
+  @media (min-width: $tablet) {
+    @content;
+  }
 }
 @mixin desktop {
-    @media (min-width: $desktop) {
-        @content;
-    }
+  @media (min-width: $desktop) {
+    @content;
+  }
 }
 
 /** Grid **/
 @mixin grid($columnas, $espaciado) {
-    display: grid;
-    gap: $espaciado;
-    grid-template-columns: repeat($columnas, 1fr);
+  display: grid;
+  gap: $espaciado;
+  grid-template-columns: repeat($columnas, 1fr);
 }
 @mixin grid-custom($columnas, $espaciado) {
-    display: grid;
-    grid-template-columns: $columnas 1fr;
-    column-gap: $espaciado;
+  display: grid;
+  grid-template-columns: $columnas 1fr;
+  column-gap: $espaciado;
 }
 
 /** Botones **/
 @mixin btn($bgColor, $color, $grosorFuente, $display) {
-    background-color: $bgColor;
-    color: $color;
-    font-weight: $grosorFuente;
-    text-decoration: none;
-    padding: 10px 30px;
-    text-align: center;
-    margin-top: $separacion/2;
-    display: $display;
-    border: none;
-    border-radius: 1.8rem;
-    justify-content: center;
+  background-color: $bgColor;
+  color: $color;
+  font-weight: $grosorFuente;
+  text-decoration: none;
+  padding: 10px 30px;
+  text-align: center;
+  margin-top: $separacion/2;
+  display: $display;
+  border: none;
+  border-radius: 1.8rem;
+  justify-content: center;
 
-    &:hover {
-        background-color: darken($bgColor, 5);
-        cursor: pointer;
-    }
+  &:hover {
+    background-color: darken($bgColor, 5);
+    cursor: pointer;
+  }
+
+  &:is(:disabled, :disabled:active) {
+    cursor: auto;
+    background-color: $terciaryColor;
+  }
 }
+

@@ -26,6 +26,8 @@ export class FormularioComponent implements OnInit {
     textArea: '',
   };
   company: string | null;
+  isSubmitted: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private redirect: Router,
@@ -42,21 +44,18 @@ export class FormularioComponent implements OnInit {
   }
 
   initForm(): FormGroup {
-    return this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      persons: ['', [Validators.required]],
-      date: ['', [Validators.required]],
-      time: ['', [Validators.required]],
-      tel: [
-        '',
-        [Validators.required, Validators.minLength(9), Validators.maxLength(9)],
-      ],
-      coment: ['', [Validators.minLength(0), Validators.maxLength(140)]],
-      email: [
-        '',
-        [Validators.required, Validators.minLength(0), Validators.email],
-      ],
-    });
+    return this.formBuilder.group(
+      {
+        name: ['', [Validators.required, Validators.minLength(3)]],
+        persons: ['', [Validators.required]],
+        date: ['', [Validators.required]],
+        time: ['', [Validators.required]],
+        tel: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+        coment: ['', [Validators.minLength(0), Validators.maxLength(140)]],
+        email: ['', [Validators.minLength(0), Validators.email]],
+      },
+      { update: 'blur' }
+    );
   }
 
   async postingBooking() {
@@ -77,13 +76,7 @@ export class FormularioComponent implements OnInit {
       };
 
       await this.BookingsService.postBooking(newCamejo).then((res) => {
-        console.log(res);
-        console.log(res.owner);
-        console.log(res.bookingToken);
-        console.log(res.owner + '/' + res.bookingToken);
-        return this.redirect.navigate([
-          '/' + res.owner + '/' + res.bookingToken,
-        ]);
+        return this.redirect.navigate(['/' + res.owner + '/' + res.bookingToken]);
       });
     }
   }
@@ -94,6 +87,7 @@ export class FormularioComponent implements OnInit {
   // }
 
   async onSubmit() {
+    this.isSubmitted = true;
     await this.postingBooking();
   }
 }
