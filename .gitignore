@@ -37,11 +37,8 @@ pnpm-lock.yaml
 /libpeerconnection.log
 testem.log
 /typings
-<<<<<<< Updated upstream
 package-lock.json
-=======
-.package-lock.json
->>>>>>> Stashed changes
+
 
 # System files
 .DS_Store
