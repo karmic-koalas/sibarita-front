@@ -56,7 +56,6 @@ export class BookingsComponent implements OnInit {
         }
       })
       .catch((err) => {
-        console.log(err);
         this.SweetAlert.getError(
           'Error',
           'No se pudo conectar con el Servidor'

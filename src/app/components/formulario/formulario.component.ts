@@ -76,10 +76,6 @@ export class FormularioComponent implements OnInit {
       };
 
       await this.BookingsService.postBooking(newCamejo).then((res) => {
-        console.log(res);
-        console.log(res.owner);
-        console.log(res.bookingToken);
-        console.log(res.owner + '/' + res.bookingToken);
         return this.redirect.navigate(['/' + res.owner + '/' + res.bookingToken]);
       });
     }

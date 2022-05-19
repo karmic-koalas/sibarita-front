@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tuser } from 'src/app/models/Tuser';
 import { AuthService } from 'src/app/services/auth.service';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-login-form',
@@ -16,7 +17,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private redirect: Router
+    private redirect: Router,
+    private dataSharingService: DataSharingService
   ) {
     this.loginForm = this.initForm();
   }
@@ -33,10 +35,11 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     if(this.loginForm.valid) {
       this.authService.login( this.loginForm.value )
-        .then( res => {
-          if(typeof res !== 'string') {
-            alert(res.message);
+        .then( token => {
+          if(typeof token !== 'boolean') {
+            alert(token.message);
           } else {
+            this.dataSharingService.isUserLoggedIn.next(true);
             this.redirect.navigate(['/profile']);
           }
         })
@@ -44,8 +47,6 @@ export class LoginFormComponent implements OnInit {
           console.log(err);
         })
     }
-    
-    // this.authService.login();
   }
 
 }
