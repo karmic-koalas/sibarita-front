@@ -11,7 +11,7 @@ COPY ./src/ /front/src/
 
 # Build angular website.
 RUN cd /front && npm install
-RUN cd /front && npx ng build --production && mv /front/dist/sibarita-front /usr/share/nginx/html
+RUN cd /front && npx ng build && mv /front/dist/sibarita-front /usr/share/nginx/html
 
 # Add docker(nginx) configurations.
 COPY ./docker/ /
@@ -19,6 +19,7 @@ COPY ./docker/ /
 # Clean image.
 RUN cd /
 RUN rm -fr /front
+RUN apk del npm
 
 EXPOSE 80
 CMD [ "nginx", "-g", "daemon off;" ]
