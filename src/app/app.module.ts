@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     FormularioComponent,
     LoginComponent,
     LoginFormComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
