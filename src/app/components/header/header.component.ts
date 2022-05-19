@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isUserLoggedIn: boolean = false;
 
-  ngOnInit(): void {
+  constructor(
+    private dataSharingService: DataSharingService,
+    private authService: AuthService
+  ) {
+    this.dataSharingService.isUserLoggedIn.subscribe( (value: boolean) => {
+      this.isUserLoggedIn = value;
+    });
   }
+
+  ngOnInit(): void {}
+
+  finishSession() {
+    this.authService.logout();
+  }
+
 
 }

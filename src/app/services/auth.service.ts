@@ -24,7 +24,7 @@ export class AuthService {
           if (typeof res === 'object') {
             this.cookieService.set('owner', res.owner);
             this.saveUser(res.token);
-            return 'camejo.session';
+            return true;
           }
           return res;
         }
@@ -55,5 +55,10 @@ export class AuthService {
 
   private saveUser(token: string) {
     sessionStorage.setItem('authorization', token);
+  }
+
+  logout(){
+    sessionStorage.clear();
+    location.reload();
   }
 }

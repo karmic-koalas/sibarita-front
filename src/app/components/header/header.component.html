@@ -6,6 +6,9 @@
 
     <nav>
       <a href="/login">Empresas</a>
+      <button class="logout" (click)="finishSession()" *ngIf="isUserLoggedIn">
+        Cerrar Sesión
+      </button>
     </nav>
   </div>
   <!-- <a href="#"
