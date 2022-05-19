@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
 
   finishSession() {
     this.authService.logout();
+    location.reload();
   }
 
 
