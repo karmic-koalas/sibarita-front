@@ -1,12 +1,24 @@
-.notfound{
-    text-align: center;
-    padding: 100px 0;
-    font-size: 50px;
+@import "variables";
+@import "mixins";
 
+.notfound {
+  text-align: center;
+  padding: 100px 0;
+  font-size: 50px;
 }
 
 .d-flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.is-invalid {
+  cursor: auto;
+  background-color: $terciaryColor;
+  &:hover {
+    cursor: auto;
+    background-color: $terciaryColor;
+  }
+}
+

@@ -1,11 +1,12 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="bookingForm">
   <div>
-    <label for="name">Nombre</label>
+    <label class="captions" for="name">Nombre*</label>
     <input
       type="text"
       [ngClass]="{
         'is-invalid':
-          bookingForm.get('name')?.touched && !bookingForm.get('name')?.valid
+          (isSubmitted || bookingForm.get('name')?.touched) &&
+          !bookingForm.get('name')?.valid
       }"
       id="name"
       name="name"
@@ -14,13 +15,13 @@
       placeholder="A nombre de..."
     />
     <div
-      *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['required']"
+      *ngIf="( isSubmitted || bookingForm.get('name')?.touched ) && bookingForm.get('name')?.errors?.['required']"
       class="alert"
     >
       Name is required
     </div>
     <div
-      *ngIf="bookingForm.get('name')?.touched && bookingForm.get('name')?.errors?.['minlength']"
+      *ngIf="( isSubmitted || bookingForm.get('name')?.touched ) && bookingForm.get('name')?.errors?.['minlength']"
       class="alert"
     >
       Name must have a minimum of
@@ -30,12 +31,12 @@
   </div>
 
   <div>
-    <label for="persons">Personas</label>
+    <label class="captions" for="persons">Personas*</label>
     <input
       type="number"
       [ngClass]="{
         'is-invalid':
-          bookingForm.get('persons')?.touched &&
+          (isSubmitted || bookingForm.get('persons')?.touched) &&
           !bookingForm.get('persons')?.valid
       }"
       id="persons"
@@ -46,7 +47,7 @@
       placeholder="Número de personas"
     />
     <div
-      *ngIf="bookingForm.get('persons')?.touched && bookingForm.get('persons')?.errors?.['required']"
+      *ngIf="( isSubmitted || bookingForm.get('persons')?.touched ) && bookingForm.get('persons')?.errors?.['required']"
       class="alert"
     >
       Persons is required
@@ -54,12 +55,13 @@
   </div>
 
   <div>
-    <label for="date">Fecha</label>
+    <label class="captions" for="date">Fecha*</label>
     <input
       type="date"
       [ngClass]="{
         'is-invalid':
-          bookingForm.get('date')?.touched && !bookingForm.get('date')?.valid
+          (isSubmitted || bookingForm.get('date')?.touched) &&
+          !bookingForm.get('date')?.valid
       }"
       id="date"
       name="date"
@@ -68,7 +70,7 @@
       [min]="date | date: 'yyyy-MM-dd'"
     />
     <div
-      *ngIf="bookingForm.get('date')?.touched && bookingForm.get('date')?.errors?.['required']"
+      *ngIf="( isSubmitted || bookingForm.get('date')?.touched ) && bookingForm.get('date')?.errors?.['required']"
       class="alert"
     >
       Date is required
@@ -76,12 +78,13 @@
   </div>
 
   <div>
-    <label for="time">Hora</label>
+    <label class="captions" for="time">Hora*</label>
     <input
       type="time"
       [ngClass]="{
         'is-invalid':
-          bookingForm.get('time')?.touched && !bookingForm.get('time')?.valid
+          (isSubmitted || bookingForm.get('time')?.touched) &&
+          !bookingForm.get('time')?.valid
       }"
       id="time"
       name="time"
@@ -89,7 +92,7 @@
       required
     /><!-- Falta validacion min y max -->
     <div
-      *ngIf="bookingForm.get('time')?.touched && bookingForm.get('time')?.errors?.['required']"
+      *ngIf="( isSubmitted || bookingForm.get('time')?.touched ) && bookingForm.get('time')?.errors?.['required']"
       class="alert"
     >
       Time is required
@@ -98,12 +101,13 @@
 
   <!-- Tlf obligatorio, y falta validacion-->
   <div>
-    <label for="tel">Télefono</label>
+    <label class="captions" for="tel">Télefono*</label>
     <input
       type="tel"
       [ngClass]="{
         'is-invalid':
-          bookingForm.get('tel')?.touched && !bookingForm.get('tel')?.valid
+          (isSubmitted || bookingForm.get('tel')?.touched) &&
+          !bookingForm.get('tel')?.valid
       }"
       id="tel"
       name="tel"
@@ -111,7 +115,7 @@
       placeholder="Teléfono de contacto"
     />
     <div
-      *ngIf="bookingForm.get('tel')?.touched && bookingForm.get('tel')?.errors?.['required']"
+      *ngIf="( isSubmitted || bookingForm.get('tel')?.touched ) && bookingForm.get('tel')?.errors?.['required']"
       class="alert"
     >
       Tel is required
@@ -120,12 +124,13 @@
 
   <!-- Tlf obligatorio, y falta validacion-->
   <div>
-    <label for="email">Email</label>
+    <label class="captions" for="email">Email</label>
     <input
       type="email"
       [ngClass]="{
         'is-invalid':
-          bookingForm.get('email')?.touched && !bookingForm.get('email')?.valid
+          (isSubmitted || bookingForm.get('email')?.touched) &&
+          !bookingForm.get('email')?.valid
       }"
       id="email"
       name="email"
@@ -141,7 +146,7 @@
   </div>
 
   <div>
-    <label for="coment">Comentario</label>
+    <label class="captions" for="coment">Comentario</label>
     <textarea
       type="time"
       placeholder="Añada un comentario adicional..."
@@ -164,9 +169,18 @@
       Longitud demasiado larga. Tiene un máximo de 140 caracteres.
     </div>
   </div>
+  <div>
+    <label class="captions">
+      Los campos marcados con el simbolo * son obligatorios.
+    </label>
+  </div>
 
   <div>
-    <button class="btn-blue" type="submit" [disabled]="bookingForm.invalid">
+    <button
+      [ngClass]="{ 'is-invalid': bookingForm.invalid }"
+      class="btn-blue"
+      type="submit"
+    >
       Enviar
     </button>
   </div>
