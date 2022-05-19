@@ -6,29 +6,28 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
-  styleUrls: ['./company.component.scss']
+  styleUrls: ['./company.component.scss'],
 })
 export class CompanyComponent implements OnInit {
-
-  company :any = {};
-  address :any = {};
-  contact :any = {};
-  checked :boolean = true;
+  company: any = {};
+  address: any = {};
+  contact: any = {};
+  checked: boolean = true;
 
   constructor(
-    private route :ActivatedRoute,
-    private CompaniesService :CompaniesService,
-    private SweetAlert :SweetAlertService
+    private route: ActivatedRoute,
+    private CompaniesService: CompaniesService,
+    private SweetAlert: SweetAlertService
   ) {
     this.loadCompany();
   }
 
-  async loadCompany()  {
-      // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
+  async loadCompany() {
+    // Esto saca la variable "company" de la URL. La variable "company" está declarada en el archivo app-routing.modules.ts
     const nameCompany = this.route.snapshot.paramMap.get('company');
     return this.CompaniesService.getCompanyByName(nameCompany)
-      .then( result => {
-        if(result) {
+      .then((result) => {
+        if (result) {
           this.company = result;
           this.address = result.address;
           this.contact = result.contact;
@@ -36,14 +35,15 @@ export class CompanyComponent implements OnInit {
           this.checked = false;
         }
       })
-      .catch( err => {
+      .catch((err) => {
         console.log(err);
-        this.SweetAlert.getError('Error', 'No se pudo conectar con el Servidor');
+        this.SweetAlert.getError(
+          'Error',
+          'No se pudo conectar con el Servidor'
+        );
         this.checked = false;
       });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -35,7 +35,6 @@ export class BookingsService {
 
   async getAllBookingsByOwner(owner: string | null) {
     const res = await fetch(this.urlApi + 'allByOwner/' + owner);
-    console.log(res);
     return await res.json();
   }
 
@@ -48,11 +47,7 @@ export class BookingsService {
       .then((res) => res.json())
       .then((res) => {
         if (res != null) {
-          console.log('Ta weno');
-
           return res;
-        } else {
-          console.log('No ta weno');
         }
       })
       .catch(() => {
@@ -60,12 +55,15 @@ export class BookingsService {
       });
   }
 
-  async deleteBookingByToken(token: string | null) {
-    const res = await fetch(this.urlApi + 'byToken/delete/' + token, {
-      method: 'DELETE',
-    })
-      .then((response) => response.json())
-      .then((response) => console.log(response));
+  async deleteBookingByToken(dataSent: any) {
+    const res = await fetch(
+      this.urlApi + 'byToken/delete/' + dataSent.bookingToken,
+      {
+        method: 'DELETE',
+        headers: { authorization: dataSent.token },
+        body: JSON.stringify(dataSent.bookingToken),
+      }
+    ).then((response) => response.json());
   }
 
   // async editBookingByToken(checkBookingData: Tbooking) {
