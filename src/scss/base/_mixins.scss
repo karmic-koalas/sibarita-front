@@ -32,19 +32,22 @@
 /** Botones **/
 @mixin btn($bgColor, $color, $grosorFuente, $display) {
   background-color: $bgColor;
-  color: $color;
+  color: darken($color, 5);
   font-weight: $grosorFuente;
   text-decoration: none;
   padding: 10px 30px;
   text-align: center;
   margin-top: $separacion/2;
+  margin-left: $separacion;
+  margin-right: $separacion;
   display: $display;
   border: none;
   border-radius: 1.8rem;
   justify-content: center;
 
   &:hover {
-    background-color: darken($bgColor, 5);
+    color: $color;
+    background-color: darken($bgColor, 7);
     cursor: pointer;
   }
 
@@ -53,4 +56,29 @@
     background-color: $terciaryColor;
   }
 }
+@mixin btn-transparent($color, $grosorFuente, $display) {
+  border: 2px solid $color;
+  color: $color;
+  font-weight: $grosorFuente;
+  text-decoration: none;
+  padding: 10px 30px;
+  text-align: center;
+  margin-top: $separacion/2;
+  margin-left: $separacion;
+  margin-right: $separacion;
+  display: $display;
+  border-radius: 1.8rem;
+  justify-content: center;
 
+  &:hover {
+    background-color: $color;
+    color: invert($color);
+    cursor: pointer;
+  }
+  /*
+  &:is(:disabled, :disabled:active) {
+    cursor: auto;
+    background-color: $terciaryColor;
+  }
+  */
+}
