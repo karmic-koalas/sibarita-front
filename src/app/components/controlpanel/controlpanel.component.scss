@@ -13,6 +13,24 @@
   text-align: left;
 }
 
+.company-info{
+  padding: 1rem;
+  align-items: center;
+  h4 {
+    margin-bottom: 0px;
+    text-align: left;
+  }
+  .company-info--span{
+    font-weight: $bold;
+    padding-right: 1rem;
+  }
+
+  @include tablet {
+    @include grid(2, 2rem)
+  }
+}
+
+
 .captions {
   color: $secondaryColor;
   font-size: 1.4rem;
@@ -32,6 +50,21 @@
   }
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btn-red {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    @include tablet {
+      font-size: 2rem;
+    }
+  }
+}
+
+
 .bookingUrl {
   color: black;
   font-size: 2rem;
@@ -40,6 +73,10 @@
   &:hover {
     color: blue;
   }
+}
+
+.link-item {
+  text-decoration: none;
 }
 
 .info {
@@ -56,14 +93,16 @@
 // }
 
 .container {
+  font-family: $fuente_principal;
   text-align: center;
   margin: 8.1vh auto;
   padding: 2rem 2rem;
+  max-width: 100%;
 }
 
 .container-interior {
   margin-top: 2rem;
-
+  text-align: left;
   padding: 2rem;
   min-width: auto;
   min-height: 20rem;
@@ -74,5 +113,9 @@
 .camejo {
   @include tablet {
     @include grid(2, 1rem);
+  }
+
+  @include desktop {
+    @include grid(3, 1rem)
   }
 }
