@@ -1,4 +1,8 @@
 <div class="container">
+  <app-header-company [img]="image" [owner]="owner" [nickname]="nickname"></app-header-company>
+  <div class="description">
+    <p>{{ company.description }}</p>
+  </div>
   <h1 class="paneldecontrol">PANEL DE CONTROL</h1>
   <!-- <p>Página en construcción</p>
   <img
@@ -8,73 +12,68 @@
   <button (click)="isPersonalInformationButtonPressed()" class="btn-blue">
     Información Personal
   </button>
-  <div *ngIf="personalInformationChecked">
-    <div class="company-info">
-      <h2>Nombre de la compañía:</h2>
-      <p>{{ company.nickname }}</p>
-
-      <h2>Url Personalizada:</h2>
-      <p>{{ company.owner }}</p>
-
-      <h2>Descripción:</h2>
-      <p>{{ company.description }}</p>
-
-      <h2>Ciudad:</h2>
-      <p>{{ company.address.city }}</p>
-
-      <h2>Provincia:</h2>
-      <p>{{ company.address.province }}</p>
-
-      <h2>Pais:</h2>
-      <p>{{ company.address.country }}</p>
-
-      <h2>Codigo Postal:</h2>
-      <p>{{ company.address.cp }}</p>
-
-      <h2>Calle:</h2>
-      <p>{{ company.address.street }}</p>
-
-      <h2>Numero:</h2>
-      <p>{{ company.address.number }}</p>
-
-      <h2>Email:</h2>
-      <p>{{ company.contact.email }}</p>
-
-      <h2>Numero de telefono:</h2>
-      <p>+{{ company.contact.phone }}</p>
-    </div>
-  </div>
   <button (click)="isBookingsButtonPressed()" class="btn-blue">Reservas</button>
-  <div *ngIf="bookingsChecking">
-    <div class="singleBooking" *ngFor="let object of showedBookings">
-      <div>
-        <p>Día: {{ object.bookingDate.day }}</p>
-        <p>Hora: {{ object.bookingDate.hour }}</p>
+  <div class="container-interior">
+    <div *ngIf="personalInformationChecked">
+      <div class="company-info">
+        <h4>Ciudad:</h4>
+        <p>{{ company.address.city }}</p>
+        <h4>Provincia:</h4>
+        <p>{{ company.address.province }}</p>
+        <h4>Pais:</h4>
+        <p>{{ company.address.country }}</p>
+        <h4>Codigo Postal:</h4>
+        <p>{{ company.address.cp }}</p>
+        <h4>Calle:</h4>
+        <p>{{ company.address.street }}</p>
+        <h4>Número:</h4>
+        <p>{{ company.address.number }}</p>
+        <h4>Email:</h4>
+        <p>{{ company.contact.email }}</p>
+        <h4>Número de telefono:</h4>
+        <p>+{{ company.contact.phone }}</p>
       </div>
-      <div>
-        <p>Número de personas: {{ object.numPerson }}</p>
-      </div>
-      <div>
-        <p>Token: {{ object.bookingToken }}</p>
-      </div>
-      <div>
-        <p>Telefono: {{ object.contact.phone }}</p>
-      </div>
-      <div>
-        <p>Email: {{ object.contact.email }}</p>
-      </div>
-      <div>
-        <p>Información Adicional: {{ object.textarea }}</p>
-      </div>
-      <button (click)="deleteOneBookingByToken(object)" class="btn-blue">
-        Eliminar reserva.
-      </button>
-      <!-- <button
+    </div>
+
+    <div class="camejo" *ngIf="bookingsChecking">
+      <div class="singleBooking" *ngFor="let object of showedBookings">
+        <div>
+          <p>🧍 A nombre de: {{ object.client }}</p>
+        </div>
+        <div>
+          <p>📅 {{ object.bookingDate.day }}</p>
+          <p>⌚ {{ object.bookingDate.hour }}</p>
+        </div>
+        <div>
+          <p>🧑‍🤝‍🧑 {{ object.numPerson }}</p>
+        </div>
+        <div>
+          <a class="bookingUrl" href="/{{ object.owner }}/{{ object.bookingToken }}"
+            >🔗 {{ object.bookingToken }}</a
+          >
+        </div>
+        <div>
+          <p>📱 {{ object.contact.phone }}</p>
+        </div>
+        <div *ngIf="object.contact.email != null">
+          <p>📧 {{ object.contact.email }}</p>
+        </div>
+        <div class="info">
+          <p>📜 Información Adicional: {{ object.textarea }}</p>
+          <P> {{ object.textarea }}</P>
+        </div>
+        <div class="buttons">
+          <button (click)="deleteOneBookingByToken(object)" class="btn-red">
+            Eliminar reserva.
+          </button>
+        </div>
+        <!-- <button
         (click)="editOneBookingByToken(object)"
         class="btn-blue"
       >
         Editar reserva.
       </button> -->
+      </div>
     </div>
   </div>
 </div>

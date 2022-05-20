@@ -16,3 +16,9 @@
 .btn-blue-block {
   @include btn($secondaryColor, white, $bold, block);
 }
+
+.btn-red {
+    @include btn ($btnRed, white, $bold, inline-block);
+}
+
+

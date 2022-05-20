@@ -1,4 +1,5 @@
 export type TbookingGET = {
+  _id?: string;
   client: string;
   owner: string;
   bookingToken: string;

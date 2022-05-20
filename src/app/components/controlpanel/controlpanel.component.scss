@@ -1,12 +1,87 @@
-// @import 'src/scss/base/globales';
-// @import '/src/scss/base/mixins';
-// @import '/src/scss/base/buttons';
+@import "src/scss/base/globales";
+@import "/src/scss/base/mixins";
+@import "/src/scss/base/buttons";
+@import "/src/scss/base/tipografia";
 
-// .singleBooking {
-//     padding: 10px;
-//     border: 1px solid black;
-// }
+.singleBooking {
+  padding: 2rem;
+  //border: 0.1px solid black;
+  border-radius: 1.2rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  justify-content: left;
+  text-align: left;
+}
 
+.company-info{
+  padding: 1rem;
+  align-items: center;
+  h4 {
+    margin-bottom: 0px;
+    text-align: left;
+  }
+  .company-info--span{
+    font-weight: $bold;
+    padding-right: 1rem;
+  }
+
+  @include tablet {
+    @include grid(2, 2rem)
+  }
+}
+
+
+.captions {
+  color: $secondaryColor;
+  font-size: 1.4rem;
+  font-family: $fuente_principal;
+  padding: 0.5rem;
+  & span {
+    color: black;
+  }
+}
+
+.btn-blue {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  @include tablet {
+    font-size: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btn-red {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    @include tablet {
+      font-size: 2rem;
+    }
+  }
+}
+
+
+.bookingUrl {
+  color: black;
+  font-size: 2rem;
+  font-family: $fuente_principal;
+  text-decoration: underline;
+  &:hover {
+    color: blue;
+  }
+}
+
+.link-item {
+  text-decoration: none;
+}
+
+.info {
+  border-top: 0.2rem solid black;
+}
 // .paneldecontrol {
 //     text-align: center;
 // }
@@ -18,7 +93,29 @@
 // }
 
 .container {
-    text-align: center;
-    margin: 2rem auto;
-    padding: 2rem 2rem;
+  font-family: $fuente_principal;
+  text-align: center;
+  margin: 8.1vh auto;
+  padding: 2rem 2rem;
+  max-width: 100%;
+}
+
+.container-interior {
+  margin-top: 2rem;
+  text-align: left;
+  padding: 2rem;
+  min-width: auto;
+  min-height: 20rem;
+  border-radius: 1.2rem;
+  background-color: $terciaryColor;
+}
+
+.camejo {
+  @include tablet {
+    @include grid(2, 1rem);
+  }
+
+  @include desktop {
+    @include grid(3, 1rem)
+  }
 }
