@@ -97,14 +97,18 @@ export class ControlpanelComponent implements OnInit {
 
   async deleteOneBookingByToken(showedBooking: any) {
     //const tokenCompany = this.route.snapshot.paramMap.get('bookingToken');
+    
     const dataSent: any = {
       bookingToken: showedBooking.bookingToken,
       token: sessionStorage.getItem('authorization'),
     };
 
     return await this.BookingsService.deleteBookingByToken(dataSent).then(() => {
-      location.reload();
+      this.showedBookings = this.showedBookings.filter( bookings => bookings._id != showedBooking._id);
       this.bookingsChecking = true;
+    }).catch((err) => {
+      console.log(err);
+      this.SweetAlert.getError('Error', 'Se ha producido un error en el Servidor');
     });
   }
 
