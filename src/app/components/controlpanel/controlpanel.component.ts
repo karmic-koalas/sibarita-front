@@ -16,6 +16,9 @@ export class ControlpanelComponent implements OnInit {
   company: any = {};
   address: any = {};
   contact: any = {};
+  image: any = {};
+  owner: any;
+  nickname!: string;
   existCheking: boolean = false;
   personalInformationChecked: boolean = true;
   bookingsChecking: boolean = false;
@@ -63,6 +66,9 @@ export class ControlpanelComponent implements OnInit {
     return this.CompaniesService.getCompanyByName(this.cookieValue)
       .then((result) => {
         if (result) {
+          this.nickname = result.nickname;
+          this.owner = result.owner;
+          this.image = result.image;
           this.company = result;
           this.address = result.address;
           this.contact = result.contact;

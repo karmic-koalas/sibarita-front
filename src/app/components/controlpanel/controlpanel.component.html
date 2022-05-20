@@ -1,4 +1,8 @@
 <div class="container">
+  <app-header-company [img]="image" [owner]="owner" [nickname]="nickname"></app-header-company>
+  <div class="description">
+    <p>{{ company.description }}</p>
+  </div>
   <h1 class="paneldecontrol">PANEL DE CONTROL</h1>
   <!-- <p>Página en construcción</p>
   <img
@@ -12,44 +16,30 @@
   <div class="container-interior">
     <div *ngIf="personalInformationChecked">
       <div class="company-info">
-        <p class="captions">
-          ¿?: <span>{{ company.nickname }}</span>
-        </p>
-
-        <h2>Url Personalizada:</h2>
-        <p>{{ company.owner }}</p>
-
-        <h2>Descripción:</h2>
-        <p>{{ company.description }}</p>
-
-        <h2>Ciudad:</h2>
+        <h4>Ciudad:</h4>
         <p>{{ company.address.city }}</p>
-
-        <h2>Provincia:</h2>
+        <h4>Provincia:</h4>
         <p>{{ company.address.province }}</p>
-
-        <h2>Pais:</h2>
+        <h4>Pais:</h4>
         <p>{{ company.address.country }}</p>
-
-        <h2>Codigo Postal:</h2>
+        <h4>Codigo Postal:</h4>
         <p>{{ company.address.cp }}</p>
-
-        <h2>Calle:</h2>
+        <h4>Calle:</h4>
         <p>{{ company.address.street }}</p>
-
-        <h2>Numero:</h2>
+        <h4>Número:</h4>
         <p>{{ company.address.number }}</p>
-
-        <h2>Email:</h2>
+        <h4>Email:</h4>
         <p>{{ company.contact.email }}</p>
-
-        <h2>Numero de telefono:</h2>
+        <h4>Número de telefono:</h4>
         <p>+{{ company.contact.phone }}</p>
       </div>
     </div>
 
     <div class="camejo" *ngIf="bookingsChecking">
       <div class="singleBooking" *ngFor="let object of showedBookings">
+        <div>
+          <p>🧍 A nombre de: {{ object.client }}</p>
+        </div>
         <div>
           <p>📅 {{ object.bookingDate.day }}</p>
           <p>⌚ {{ object.bookingDate.hour }}</p>
@@ -72,9 +62,11 @@
           <p>📜 Información Adicional: {{ object.textarea }}</p>
           <P> {{ object.textarea }}</P>
         </div>
-        <button (click)="deleteOneBookingByToken(object)" class="btn-blue">
-          Eliminar reserva.
-        </button>
+        <div class="buttons">
+          <button (click)="deleteOneBookingByToken(object)" class="btn-red">
+            Eliminar reserva.
+          </button>
+        </div>
         <!-- <button
         (click)="editOneBookingByToken(object)"
         class="btn-blue"
