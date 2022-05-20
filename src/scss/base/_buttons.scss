@@ -1,11 +1,18 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 .btn-blue {
-    @include btn ($secondaryColor, white, $bold, inline-block);
+  @include btn($secondaryColor, white, $bold, inline-block);
+}
+
+.btn-transparent-white {
+  @include btn-transparent(white, $bold, inline-block);
+}
+
+.btn-transparent-black {
+  @include btn-transparent(black, $bold, inline-block);
 }
 
 .btn-blue-block {
-    @include btn ($secondaryColor, white, $bold, block);
+  @include btn($secondaryColor, white, $bold, block);
 }
-

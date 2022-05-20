@@ -1,63 +1,83 @@
-@import 'src/scss/base/globales';
-@import '/src/scss/base/mixins';
-@import 'src/scss/base/buttons';
+@import "src/scss/base/globales";
+@import "/src/scss/base/mixins";
+@import "src/scss/base/buttons";
 
 .info {
-    background-image: url("https://img.freepik.com/foto-gratis/interior-restaurante_1127-3392.jpg?w=1480&t=st=1652464797~exp=1652465397~hmac=1a81182a63991c6bb7043d5d7e4fb91debd2dad80a31a298f2a0d9dae65f6af6%22");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 45rem;
-    background-position: 50%;
-    position: relative;
+  background-image: url("https://img.freepik.com/foto-gratis/interior-restaurante_1127-3392.jpg?w=1480&t=st=1652464797~exp=1652465397~hmac=1a81182a63991c6bb7043d5d7e4fb91debd2dad80a31a298f2a0d9dae65f6af6%22");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45rem;
+  background-position: 50%;
+  position: relative;
 
-    .content-info {
-        position: absolute;
-        background-color: rgba( 0 0 0 / 45% );
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
+  .content-info {
+    position: absolute;
+    background-color: rgba(0 0 0 / 65%);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
 
-        h2 {
-            color: white;
-            display: flex;
-            flex-direction: column;
-            z-index: 1;
+    h2 {
+      color: white;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
 
-            span {
-                margin-top: 1.5rem;
-                font-size: 2rem;
-            }
-        }
-
-        a{
-            font-size: 1.9rem;
-        }
+      span {
+        margin-top: 1.5rem;
+        font-size: 2rem;
+      }
     }
+  }
 }
 
-.section{
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+.button-position {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  a {
+    font-size: 1.9rem;
+  }
+}
+
+#title-benefits {
+  margin-bottom: 10rem;
+}
+
+.section {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
 }
 
 .icono {
-    text-align: center;
+  text-align: center;
+  margin: 0 0 5rem 0;
 
-    svg{
-        height: 10rem;
-    }
+  svg {
+    height: 10rem;
+  }
+  p {
+    margin: 0 2rem 0 2rem;
+    text-align: justify;
+  }
 }
 
 .iconos-servicios {
-    @include desktop {
-        @include grid( 3, 2rem );
-    }
+  @include tablet {
+    @include grid(3, 2rem);
+  }
 }
 
 .section-prueba {
-    background-color: $terciaryColor;
-    padding: 10rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: $terciaryColor;
+  padding: 10rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
