@@ -17,7 +17,7 @@ export class ControlpanelComponent implements OnInit {
   address: any = {};
   contact: any = {};
   existCheking: boolean = false;
-  personalInformationChecked: boolean = false;
+  personalInformationChecked: boolean = true;
   bookingsChecking: boolean = false;
   private sessionToken: string | null = sessionStorage.getItem('authorization');
   showedBookings: TbookingGET[] = [];
@@ -72,10 +72,7 @@ export class ControlpanelComponent implements OnInit {
       })
       .catch((err) => {
         console.log(err);
-        this.SweetAlert.getError(
-          'Error',
-          'No se pudo conectar con el Servidor'
-        );
+        this.SweetAlert.getError('Error', 'No se pudo conectar con el Servidor');
         this.existCheking = false;
       });
   }
@@ -105,17 +102,16 @@ export class ControlpanelComponent implements OnInit {
       token: sessionStorage.getItem('authorization'),
     };
 
-    return await this.BookingsService.deleteBookingByToken(dataSent).then(
-      () => {
-        location.reload();
-        this.bookingsChecking = true;
-      }
-    );
+    return await this.BookingsService.deleteBookingByToken(dataSent).then(() => {
+      location.reload();
+      this.bookingsChecking = true;
+    });
   }
 
   isPersonalInformationButtonPressed() {
     if (this.personalInformationChecked === false) {
       this.personalInformationChecked = true;
+      this.bookingsChecking = false;
     } else {
       this.personalInformationChecked = false;
     }
@@ -124,8 +120,10 @@ export class ControlpanelComponent implements OnInit {
   isBookingsButtonPressed() {
     if (this.bookingsChecking === false) {
       this.bookingsChecking = true;
+      this.personalInformationChecked = false;
     } else {
       this.bookingsChecking = false;
+      this.personalInformationChecked = true;
     }
   }
 }

@@ -1,12 +1,50 @@
-// @import 'src/scss/base/globales';
-// @import '/src/scss/base/mixins';
-// @import '/src/scss/base/buttons';
+@import "src/scss/base/globales";
+@import "/src/scss/base/mixins";
+@import "/src/scss/base/buttons";
+@import "/src/scss/base/tipografia";
 
-// .singleBooking {
-//     padding: 10px;
-//     border: 1px solid black;
-// }
+.singleBooking {
+  padding: 2rem;
+  //border: 0.1px solid black;
+  border-radius: 1.2rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  justify-content: left;
+  text-align: left;
+}
 
+.captions {
+  color: $secondaryColor;
+  font-size: 1.4rem;
+  font-family: $fuente_principal;
+  padding: 0.5rem;
+  & span {
+    color: black;
+  }
+}
+
+.btn-blue {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  @include tablet {
+    font-size: 2rem;
+  }
+}
+
+.bookingUrl {
+  color: black;
+  font-size: 2rem;
+  font-family: $fuente_principal;
+  text-decoration: underline;
+  &:hover {
+    color: blue;
+  }
+}
+
+.info {
+  border-top: 0.2rem solid black;
+}
 // .paneldecontrol {
 //     text-align: center;
 // }
@@ -18,7 +56,23 @@
 // }
 
 .container {
-    text-align: center;
-    margin: 2rem auto;
-    padding: 2rem 2rem;
+  text-align: center;
+  margin: 8.1vh auto;
+  padding: 2rem 2rem;
+}
+
+.container-interior {
+  margin-top: 2rem;
+
+  padding: 2rem;
+  min-width: auto;
+  min-height: 20rem;
+  border-radius: 1.2rem;
+  background-color: $terciaryColor;
+}
+
+.camejo {
+  @include tablet {
+    @include grid(2, 1rem);
+  }
 }
