@@ -54,7 +54,7 @@
     <div class="camejo" *ngIf="bookingsChecking">
       <div class="singleBooking" *ngFor="let object of showedBookings">
         <div>
-          <p>🧍 A nombre de: {{ object.client }}</p>
+          <p>🧍 {{ object.client }}</p>
         </div>
         <div>
           <p>📅 {{ object.bookingDate.day }}</p>
@@ -64,9 +64,10 @@
           <p>🧑‍🤝‍🧑 {{ object.numPerson }}</p>
         </div>
         <div>
-          <a class="bookingUrl" href="/{{ object.owner }}/{{ object.bookingToken }}"
-            >🔗 {{ object.bookingToken }}</a
-          >
+          <span class="bookingUrl-icon">🔗 </span
+          ><a class="bookingUrl" href="/{{ object.owner }}/{{ object.bookingToken }}">{{
+            object.bookingToken
+          }}</a>
         </div>
         <div>
           <p>📱 {{ object.contact.phone }}</p>
@@ -75,11 +76,11 @@
           <p>📧 {{ object.contact.email }}</p>
         </div>
         <div class="info">
-          <p>📜 Información Adicional: {{ object.textArea }}</p>
+          <p>📜 Información Adicional:</p>
           <P> {{ object.textArea }}</P>
         </div>
         <div class="buttons">
-          <button (click)="deleteBookingAlert(object)" class="btn-red">Eliminar reserva.</button>
+          <button (click)="deleteBookingAlert(object)" class="btn-red">Cancelar reserva</button>
         </div>
         <!-- <button
         (click)="editOneBookingByToken(object)"

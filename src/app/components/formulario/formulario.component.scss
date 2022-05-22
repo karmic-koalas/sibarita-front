@@ -23,6 +23,7 @@ form {
   background-color: whitesmoke;
   padding: 2rem;
   border-radius: 1rem;
+  font-family: $fuente_principal;
 }
 
 form div {
@@ -47,7 +48,15 @@ form div {
 
 .captions {
   color: $secondaryColor;
-  font-size: 1.4rem;
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-family: $fuente_principal;
+  padding: 0.5rem;
+}
+
+.captions-extra {
+  color: $secondaryColor;
+  font-size: 1.8rem;
   font-family: $fuente_principal;
   padding: 0.5rem;
 }

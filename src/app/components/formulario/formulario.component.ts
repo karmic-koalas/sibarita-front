@@ -50,7 +50,7 @@ export class FormularioComponent implements OnInit {
         persons: ['', [Validators.required]],
         date: ['', [Validators.required]],
         time: ['', [Validators.required]],
-        tel: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+        tel: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/)]],
         coment: ['', [Validators.minLength(0), Validators.maxLength(140)]],
         email: ['', [Validators.minLength(0), Validators.email]],
       },

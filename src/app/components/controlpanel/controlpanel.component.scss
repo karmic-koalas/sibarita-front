@@ -77,7 +77,6 @@
   }
 }
 
-
 .bookingUrl {
   color: black;
   font-size: 2rem;
@@ -86,6 +85,10 @@
   &:hover {
     color: blue;
   }
+}
+
+.bookingUrl-icon {
+  font-size: 2rem;
 }
 
 .link-item {
