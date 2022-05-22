@@ -72,9 +72,8 @@ export class FormularioComponent implements OnInit {
           phone: this.bookingForm.value.tel,
           email: this.bookingForm.value.email,
         },
-        textArea: this.bookingForm.value.comment,
+        textArea: this.bookingForm.value.coment,
       };
-
       await this.BookingsService.postBooking(newCamejo).then((res) => {
         return this.redirect.navigate(['/' + res.owner + '/' + res.bookingToken]);
       });

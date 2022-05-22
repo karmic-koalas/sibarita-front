@@ -12,5 +12,5 @@ export type TbookingGET = {
     phone: number;
     email: string;
   };
-  textarea: string;
+  textArea: string;
 };

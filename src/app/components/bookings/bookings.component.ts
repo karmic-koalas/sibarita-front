@@ -27,7 +27,7 @@ export class BookingsComponent implements OnInit {
       phone: 0,
       email: '',
     },
-    textarea: '',
+    textArea: '',
   };
 
   constructor(

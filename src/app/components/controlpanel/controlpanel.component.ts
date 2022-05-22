@@ -40,7 +40,7 @@ export class ControlpanelComponent implements OnInit {
       phone: 0,
       email: '',
     },
-    textarea: '',
+    textArea: '',
   };
   private cookieValue: string = '';
   constructor(
@@ -121,7 +121,10 @@ export class ControlpanelComponent implements OnInit {
     });
   }
 
-  
+  async deleteBookingAlert(showedBooking: any) {
+    const checking = await this.SweetAlert.elminateBooking('¿Está seguro?', `Va a eliminar la reserva ${showedBooking.bookingToken}`)
+    if (checking != false) this.deleteOneBookingByToken(showedBooking);
+  }
 
   isPersonalInformationButtonPressed() {
     this.personalInformationChecked = true;

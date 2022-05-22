@@ -75,13 +75,11 @@
           <p>📧 {{ object.contact.email }}</p>
         </div>
         <div class="info">
-          <p>📜 Información Adicional: {{ object.textarea }}</p>
-          <P> {{ object.textarea }}</P>
+          <p>📜 Información Adicional: {{ object.textArea }}</p>
+          <P> {{ object.textArea }}</P>
         </div>
         <div class="buttons">
-          <button (click)="deleteOneBookingByToken(object)" class="btn-red">
-            Eliminar reserva.
-          </button>
+          <button (click)="deleteBookingAlert(object)" class="btn-red">Eliminar reserva.</button>
         </div>
         <!-- <button
         (click)="editOneBookingByToken(object)"
