@@ -12,9 +12,22 @@
   justify-content: left;
   text-align: left;
 }
+.header-company {
+  margin-top: -4rem;
+}
+.buttons-details {
+  margin-top: -2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
+.disabled {
+  background-color: darken($secondaryColor, 10);
+}
 .company-info{
   padding: 1rem;
+  padding-left: 3rem;
   align-items: center;
   h4 {
     margin-bottom: 0px;

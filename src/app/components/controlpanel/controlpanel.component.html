@@ -1,5 +1,7 @@
 <div class="container">
-  <app-header-company [img]="image" [owner]="owner" [nickname]="nickname"></app-header-company>
+  <div class="header-company">
+    <app-header-company [img]="image" [owner]="owner" [nickname]="nickname"></app-header-company>
+  </div>
   <div class="description">
     <p>{{ company.description }}</p>
   </div>
@@ -9,10 +11,24 @@
     src="https://cr00.epimg.net/radio/imagenes/2022/03/28/tendencias/1648476125_401555_1648477371_noticia_normal.jpg"
     alt="img_meme"
   /> -->
-  <button (click)="isPersonalInformationButtonPressed()" class="btn-blue">
-    Información Personal
-  </button>
-  <button (click)="isBookingsButtonPressed()" class="btn-blue">Reservas</button>
+  <div class="buttons-details">
+    <button
+      [ngClass]="{ disabled: personalInformationChecked === true }"
+      (click)="isPersonalInformationButtonPressed()"
+      class="btn-blue"
+      id="personal-information-button"
+    >
+      Información Personal
+    </button>
+    <button
+      [ngClass]="{ disabled: bookingsChecking === true }"
+      (click)="isBookingsButtonPressed()"
+      class="btn-blue"
+      id="bookings-button"
+    >
+      Reservas
+    </button>
+  </div>
   <div class="container-interior">
     <div *ngIf="personalInformationChecked">
       <div class="company-info">
