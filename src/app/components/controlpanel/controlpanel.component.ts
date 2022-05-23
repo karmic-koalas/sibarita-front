@@ -13,6 +13,9 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./controlpanel.component.scss'],
 })
 export class ControlpanelComponent implements OnInit {
+  btnPersonalInformation = document.getElementById('#personal-information-button') as HTMLButtonElement | null;
+  btnBookingButton = document.getElementById('#bookings-button') as HTMLButtonElement | null;
+
   company: any = {};
   address: any = {};
   contact: any = {};
@@ -37,7 +40,7 @@ export class ControlpanelComponent implements OnInit {
       phone: 0,
       email: '',
     },
-    textarea: '',
+    textArea: '',
   };
   private cookieValue: string = '';
   constructor(
@@ -118,22 +121,22 @@ export class ControlpanelComponent implements OnInit {
     });
   }
 
+  async deleteBookingAlert(showedBooking: any) {
+    const checking = await this.SweetAlert.elminateBooking('¿Está seguro?', `Va a eliminar la reserva ${showedBooking.bookingToken}`)
+    if (checking != false) this.deleteOneBookingByToken(showedBooking);
+  }
+
   isPersonalInformationButtonPressed() {
-    if (this.personalInformationChecked === false) {
-      this.personalInformationChecked = true;
-      this.bookingsChecking = false;
-    } else {
-      this.personalInformationChecked = false;
-    }
+    this.personalInformationChecked = true;
+    if (this.btnPersonalInformation != null) this.btnPersonalInformation.disabled = true;
+    if (this.btnBookingButton != null) this.btnBookingButton.disabled = false;
+    this.bookingsChecking = false;
   }
 
   isBookingsButtonPressed() {
-    if (this.bookingsChecking === false) {
-      this.bookingsChecking = true;
-      this.personalInformationChecked = false;
-    } else {
-      this.bookingsChecking = false;
-      this.personalInformationChecked = true;
-    }
+    this.bookingsChecking = true;
+    if (this.btnPersonalInformation != null) this.btnPersonalInformation.disabled = false;
+    if (this.btnBookingButton != null) this.btnBookingButton.disabled = true;
+    this.personalInformationChecked = false;
   }
 }

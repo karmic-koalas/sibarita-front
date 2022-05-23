@@ -41,12 +41,13 @@
     flex-wrap: wrap;
   }
   a {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
 }
 
 #title-benefits {
-  margin-bottom: 10rem;
+  margin-top: -5rem;
+  margin-bottom: 6rem;
 }
 
 .section {
@@ -56,13 +57,13 @@
 
 .icono {
   text-align: center;
-  margin: 0 0 5rem 0;
+  margin: 0 1.5rem;
 
   svg {
     height: 10rem;
   }
   p {
-    margin: 0 2rem 0 2rem;
+    //margin: 0 1.5rem;
     text-align: justify;
   }
 }

@@ -5,8 +5,7 @@
       type="text"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('name')?.touched) &&
-          !bookingForm.get('name')?.valid
+          (isSubmitted || bookingForm.get('name')?.touched) && !bookingForm.get('name')?.valid
       }"
       id="name"
       name="name"
@@ -36,8 +35,7 @@
       type="number"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('persons')?.touched) &&
-          !bookingForm.get('persons')?.valid
+          (isSubmitted || bookingForm.get('persons')?.touched) && !bookingForm.get('persons')?.valid
       }"
       id="persons"
       min="1"
@@ -60,8 +58,7 @@
       type="date"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('date')?.touched) &&
-          !bookingForm.get('date')?.valid
+          (isSubmitted || bookingForm.get('date')?.touched) && !bookingForm.get('date')?.valid
       }"
       id="date"
       name="date"
@@ -83,8 +80,7 @@
       type="time"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('time')?.touched) &&
-          !bookingForm.get('time')?.valid
+          (isSubmitted || bookingForm.get('time')?.touched) && !bookingForm.get('time')?.valid
       }"
       id="time"
       name="time"
@@ -101,13 +97,12 @@
 
   <!-- Tlf obligatorio, y falta validacion-->
   <div>
-    <label class="captions" for="tel">Télefono*</label>
+    <label class="captions" for="tel">Teléfono Móvil*</label>
     <input
       type="tel"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('tel')?.touched) &&
-          !bookingForm.get('tel')?.valid
+          (isSubmitted || bookingForm.get('tel')?.touched) && !bookingForm.get('tel')?.valid
       }"
       id="tel"
       name="tel"
@@ -120,6 +115,12 @@
     >
       Tel is required
     </div>
+    <div
+      *ngIf="( isSubmitted || bookingForm.get('tel')?.touched ) && bookingForm.get('tel')?.errors?.['pattern']"
+      class="alert"
+    >
+      Tel format is invalid or incorrect
+    </div>
   </div>
 
   <!-- Tlf obligatorio, y falta validacion-->
@@ -129,8 +130,7 @@
       type="email"
       [ngClass]="{
         'is-invalid':
-          (isSubmitted || bookingForm.get('email')?.touched) &&
-          !bookingForm.get('email')?.valid
+          (isSubmitted || bookingForm.get('email')?.touched) && !bookingForm.get('email')?.valid
       }"
       id="email"
       name="email"
@@ -151,9 +151,7 @@
       type="time"
       placeholder="Añada un comentario adicional..."
       [ngClass]="{
-        'is-invalid':
-          bookingForm.get('coment')?.touched &&
-          !bookingForm.get('coment')?.valid
+        'is-invalid': bookingForm.get('coment')?.touched && !bookingForm.get('coment')?.valid
       }"
       formControlName="coment"
       name="coment"
@@ -170,17 +168,11 @@
     </div>
   </div>
   <div>
-    <label class="captions">
-      Los campos marcados con el simbolo * son obligatorios.
-    </label>
+    <label class="captions-extra"> Los campos marcados con el simbolo * son obligatorios. </label>
   </div>
 
   <div>
-    <button
-      [ngClass]="{ 'is-invalid': bookingForm.invalid }"
-      class="btn-blue"
-      type="submit"
-    >
+    <button [ngClass]="{ 'is-invalid': bookingForm.invalid }" class="btn-blue" type="submit">
       Enviar
     </button>
   </div>
